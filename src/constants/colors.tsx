@@ -1,0 +1,21 @@
+export const COLORS = {
+  white: "--white",
+  black: "--black",
+  grey1: "--grey-1",
+  grey2: "--grey-2",
+  grey3: "--grey-3",
+
+  primary: "--primary",
+  primaryDark: "--primary-dark",
+  primaryLight: "--primary-light",
+  secondary: "--secondary",
+  secondaryLight: "--secondary-light",
+  tertiary: "--tertiary",
+  danger: "--danger",
+  dangerLight: "--danger-light",
+  info: "--info",
+  infoLight: "--info-light",
+  success: "--success",
+  successDark: "--success-dark",
+  successLight: "--success-light",
+};
