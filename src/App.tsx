@@ -1,6 +1,6 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Uikit from "./components/Uikit";
+import Uikit from "./pages/Uikit";
 
 const router = createBrowserRouter([
   {
