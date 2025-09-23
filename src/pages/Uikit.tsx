@@ -13,6 +13,7 @@ import { FormEvent, useState } from "react";
 import { rem } from "../utils/pxToRem";
 import SelectList from "../components/SelectList";
 import { SelectChangeEvent } from "@mui/material";
+import NumberInput from "../components/InputNumberStepper/InputNumberStepper";
 
 const Div = styled.div<{ $color: string }>`
   width: 90px;
@@ -70,6 +71,25 @@ export default function Uikit() {
   );
   const handleFruitChange = (event: SelectChangeEvent<string>) => {
     setSelectedFruit(event.target.value);
+  };
+
+  // FOR INPUT STEPPER
+
+  const [stepperValue, setStepperValue] = useState<number>(0);
+
+  const handleIncrement = () => {
+    setStepperValue((prevValue) => prevValue + 1);
+  };
+
+  const handleDecrement = () => {
+    if (stepperValue > 0) {
+      setStepperValue((prevValue) => prevValue - 1);
+    }
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = event.target.value === "" ? 0 : Number(event.target.value);
+    setStepperValue(newValue);
   };
 
   return (
@@ -178,6 +198,13 @@ export default function Uikit() {
         onChange={handleFruitChange}
         options={fruitOptions}
       ></SelectList>
+
+      <NumberInput
+        value={stepperValue}
+        onIncrement={handleIncrement}
+        onDecrement={handleDecrement}
+        onChange={handleChange}
+      />
     </div>
   );
 }
