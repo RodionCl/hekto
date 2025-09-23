@@ -2,6 +2,7 @@ import { IconButton } from "@mui/material";
 import { ReactNode } from "react";
 import { COLORS } from "../constants/colors";
 import { cv } from "../utils/cssVar";
+import { rem } from "../utils/pxToRem";
 
 interface ButtonProps {
   children: ReactNode;
@@ -17,8 +18,8 @@ export default function AppIconButton({
   children,
   bgColor = COLORS.primary,
   bgColorHover = COLORS.primaryDark,
-  borderRadius = "0.8rem",
-  padding = "0.8rem",
+  borderRadius = rem(8),
+  padding = rem(8),
   color = COLORS.white,
   withBackground = true,
   ...props

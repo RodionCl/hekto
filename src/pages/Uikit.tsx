@@ -6,6 +6,11 @@ import SuccessButton from "../components/SuccessButton";
 import AppIconButton from "../components/AppIconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import { ICON_SIZES } from "../constants/iconSizes";
+import InputComplex from "../components/InputComplex";
+import SearchButton from "../components/SearchButton";
+import Form from "../components/Form";
+import { FormEvent, useState } from "react";
+import { rem } from "../utils/pxToRem";
 
 const Div = styled.div<{ $color: string }>`
   width: 90px;
@@ -14,6 +19,44 @@ const Div = styled.div<{ $color: string }>`
 `;
 
 export default function Uikit() {
+  const [hasError, setHasError] = useState<boolean>(false);
+
+  const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
+    const formData = new FormData(event.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+    const { search } = data;
+    if (typeof search !== "string" || !search.trim()) {
+      setHasError(true);
+      return;
+    }
+    console.log("Form ", data);
+  };
+
+  const handleInputChange = () => {
+    if (hasError) {
+      setHasError(false);
+    }
+  };
+
+  const [hasError2, setHasError2] = useState<boolean>(false);
+
+  const handleFormSubmit2 = (event: FormEvent<HTMLFormElement>) => {
+    const formData = new FormData(event.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+    const { search2 } = data;
+    if (typeof search2 !== "string" || !search2.trim()) {
+      setHasError2(true);
+      return;
+    }
+    console.log("Form ", data);
+  };
+
+  const handleInputChange2 = () => {
+    if (hasError2) {
+      setHasError2(false);
+    }
+  };
+
   return (
     <div>
       <h1>heading 1</h1>
@@ -54,13 +97,14 @@ export default function Uikit() {
           <Div $color={color} key={index} />
         ))}
       </div>
+
       <AppButton bgColor={COLORS.primary} bgColorHover={COLORS.primaryDark}>
         <p className="subtitle-4">Shop Now</p>
       </AppButton>
+
       <SuccessButton>Shop Now</SuccessButton>
-      <AppIconButton padding="0.6rem 1.4rem">
-        <SearchIcon sx={{ fontSize: ICON_SIZES.big }} />
-      </AppIconButton>
+
+      <SearchButton />
 
       <div
         style={{
@@ -68,8 +112,8 @@ export default function Uikit() {
         }}
       >
         <AppIconButton
-          padding="0.8rem"
-          borderRadius="3.2rem"
+          padding={rem(8)}
+          borderRadius={rem(32)}
           bgColor={COLORS.white}
           bgColorHover={COLORS.grey2}
           color={COLORS.tertiary}
@@ -77,14 +121,39 @@ export default function Uikit() {
           <SearchIcon sx={{ fontSize: ICON_SIZES.medium }} />
         </AppIconButton>
         <AppIconButton
-          padding="0.8rem"
-          borderRadius="3.2rem"
+          padding={rem(8)}
+          borderRadius={rem(32)}
           withBackground={false}
           color={COLORS.tertiary}
         >
           <SearchIcon sx={{ fontSize: ICON_SIZES.medium }} />
         </AppIconButton>
       </div>
+
+      <Form onSubmit={handleFormSubmit} style={{ maxWidth: "400px" }}>
+        <InputComplex
+          name="search"
+          placeholder="Search..."
+          aria-label="Enter product"
+          error={hasError}
+          onChange={handleInputChange}
+          hasError={hasError}
+          endAdornmentButton={
+            <SearchButton aria-label="Search Button" type="submit" />
+          }
+        ></InputComplex>
+      </Form>
+
+      <Form onSubmit={handleFormSubmit2} style={{ maxWidth: "400px" }}>
+        <InputComplex
+          name="search2"
+          placeholder="Search2..."
+          aria-label="Enter product2"
+          error={hasError2}
+          onChange={handleInputChange2}
+          hasError={hasError2}
+        ></InputComplex>
+      </Form>
     </div>
   );
 }

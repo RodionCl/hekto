@@ -2,11 +2,12 @@ import styled from "styled-components";
 import AppButton from "./AppButton";
 import { COLORS } from "../constants/colors";
 import { ReactNode } from "react";
+import { rem } from "../utils/pxToRem";
 
 const ButtonText = styled.p`
-  font-size: 1.2rem;
+  font-size: ${rem(12)};
   font-family: "Josefin", sans-serif;
-  line-height: 1.4rem;
+  line-height: ${rem(14)};
 `;
 
 interface ButtonProps {
@@ -18,8 +19,8 @@ export default function SuccessButton({ children }: ButtonProps) {
     <AppButton
       bgColor={COLORS.success}
       bgColorHover={COLORS.successDark}
-      padding="1.1rem 1.6rem"
-      borderRadius="0.6rem"
+      padding={rem(11, 16)}
+      borderRadius={rem(6)}
     >
       <ButtonText>{children}</ButtonText>
     </AppButton>

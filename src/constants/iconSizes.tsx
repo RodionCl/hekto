@@ -1,4 +1,6 @@
+import { rem } from "../utils/pxToRem";
+
 export const ICON_SIZES = {
-  medium: "1.6rem",
-  big: "2.4rem",
+  medium: rem(16),
+  big: rem(24),
 };

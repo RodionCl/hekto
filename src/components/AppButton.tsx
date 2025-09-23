@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import { cv } from "../utils/cssVar";
 import { COLORS } from "../constants/colors";
 import { ReactNode } from "react";
+import { rem } from "../utils/pxToRem";
 
 interface ButtonProps {
   children: ReactNode;
@@ -15,8 +16,8 @@ export default function AppButton({
   children,
   bgColor = COLORS.primary,
   bgColorHover = COLORS.primaryDark,
-  borderRadius = "0.8rem",
-  padding = "1.6rem 4rem",
+  borderRadius = rem(8),
+  padding = rem(16, 4),
   ...props
 }: ButtonProps) {
   const bgColorValue = cv(bgColor);
