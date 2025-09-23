@@ -11,6 +11,8 @@ import SearchButton from "../components/SearchButton";
 import Form from "../components/Form";
 import { FormEvent, useState } from "react";
 import { rem } from "../utils/pxToRem";
+import SelectList from "../components/SelectList";
+import { SelectChangeEvent } from "@mui/material";
 
 const Div = styled.div<{ $color: string }>`
   width: 90px;
@@ -19,8 +21,8 @@ const Div = styled.div<{ $color: string }>`
 `;
 
 export default function Uikit() {
+  // FOR INPUT WITH BUTTON
   const [hasError, setHasError] = useState<boolean>(false);
-
   const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     const formData = new FormData(event.currentTarget);
     const data = Object.fromEntries(formData.entries());
@@ -38,8 +40,8 @@ export default function Uikit() {
     }
   };
 
+  // FOR INPUT SIMPLE
   const [hasError2, setHasError2] = useState<boolean>(false);
-
   const handleFormSubmit2 = (event: FormEvent<HTMLFormElement>) => {
     const formData = new FormData(event.currentTarget);
     const data = Object.fromEntries(formData.entries());
@@ -55,6 +57,19 @@ export default function Uikit() {
     if (hasError2) {
       setHasError2(false);
     }
+  };
+
+  // FOR SELECT
+  const fruitOptions = [
+    { value: "apple", label: "Apple 🍎" },
+    { value: "banana", label: "Banana 🍌" },
+    { value: "orange", label: "Orange 🍊" },
+  ];
+  const [selectedFruit, setSelectedFruit] = useState<string>(
+    fruitOptions[1].value,
+  );
+  const handleFruitChange = (event: SelectChangeEvent<string>) => {
+    setSelectedFruit(event.target.value);
   };
 
   return (
@@ -154,6 +169,15 @@ export default function Uikit() {
           hasError={hasError2}
         ></InputComplex>
       </Form>
+
+      <SelectList
+        width="400px"
+        label="Select Fruit"
+        id="fruit-select"
+        value={selectedFruit}
+        onChange={handleFruitChange}
+        options={fruitOptions}
+      ></SelectList>
     </div>
   );
 }
