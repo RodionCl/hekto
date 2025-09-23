@@ -11,7 +11,6 @@ import { COLORS } from "../constants/colors";
 import { rem } from "../utils/pxToRem";
 import { ReactNode } from "react";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
-import AppIconButton from "./AppIconButton";
 import { ICON_SIZES } from "../constants/iconSizes";
 
 interface InputProps extends OutlinedInputProps {
@@ -47,7 +46,7 @@ export default function InputComplex({
 
   return (
     <FormControl sx={{ width }} variant="outlined">
-      <InputLabel htmlFor={name} sx={visuallyHidden}>
+      <InputLabel htmlFor={name} sx={visuallyHidden} shrink>
         {label}
       </InputLabel>
       <OutlinedInput
