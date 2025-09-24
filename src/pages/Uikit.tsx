@@ -14,6 +14,7 @@ import { rem } from "../utils/pxToRem";
 import SelectList from "../components/SelectList";
 import { SelectChangeEvent } from "@mui/material";
 import NumberInput from "../components/InputNumberStepper/InputNumberStepper";
+import ColorCheckbox from "../components/ColorCheckbox";
 
 const Div = styled.div<{ $color: string }>`
   width: 90px;
@@ -74,7 +75,6 @@ export default function Uikit() {
   };
 
   // FOR INPUT STEPPER
-
   const [stepperValue, setStepperValue] = useState<number>(0);
 
   const handleIncrement = () => {
@@ -205,6 +205,11 @@ export default function Uikit() {
         onDecrement={handleDecrement}
         onChange={handleChange}
       />
+
+      <ColorCheckbox />
+      <ColorCheckbox customColor={cv(COLORS.secondary)} />
+      <ColorCheckbox customColor={cv(COLORS.primary)} />
+      <ColorCheckbox customColor={cv(COLORS.success)} />
     </div>
   );
 }
