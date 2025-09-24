@@ -1,16 +1,16 @@
-import { IconButton } from "@mui/material";
+import { IconButton, IconButtonProps } from "@mui/material";
 import { ReactNode } from "react";
 import { COLORS } from "../constants/colors";
 import { cv } from "../utils/cssVar";
 import { rem } from "../utils/pxToRem";
 
-interface ButtonProps {
+interface ButtonProps extends IconButtonProps {
   children: ReactNode;
   bgColor?: string;
   bgColorHover?: string;
   borderRadius?: string;
   padding?: string;
-  color?: string;
+  textColor?: string;
   withBackground?: boolean;
 }
 
@@ -20,12 +20,12 @@ export default function AppIconButton({
   bgColorHover = COLORS.primaryDark,
   borderRadius = rem(8),
   padding = rem(8),
-  color = COLORS.white,
+  textColor = COLORS.white,
   withBackground = true,
   ...props
 }: ButtonProps) {
   const bgColorValue = withBackground ? cv(bgColor) : "transparent";
-  const bgColorHoverValue = withBackground ? cv(bgColorHover) : "transparent";
+  const bgColorHoverValue = cv(bgColorHover);
 
   return (
     <IconButton
@@ -37,7 +37,7 @@ export default function AppIconButton({
         textTransform: "none",
         backgroundColor: bgColorValue,
         boxShadow: "none",
-        color: cv(color),
+        color: cv(textColor),
         "&:hover": {
           boxShadow: "none",
           backgroundColor: bgColorHoverValue,

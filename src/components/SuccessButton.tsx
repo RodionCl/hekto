@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import AppButton from "./AppButton";
+import AppButton, { AppButtonProps } from "./AppButton";
 import { COLORS } from "../constants/colors";
-import { ReactNode } from "react";
 import { rem } from "../utils/pxToRem";
 
 const ButtonText = styled.p`
@@ -10,17 +9,14 @@ const ButtonText = styled.p`
   line-height: ${rem(14)};
 `;
 
-interface ButtonProps {
-  children: ReactNode;
-}
-
-export default function SuccessButton({ children }: ButtonProps) {
+export default function SuccessButton({ children, ...props }: AppButtonProps) {
   return (
     <AppButton
       bgColor={COLORS.success}
       bgColorHover={COLORS.successDark}
       padding={rem(11, 16)}
       borderRadius={rem(6)}
+      {...props}
     >
       <ButtonText>{children}</ButtonText>
     </AppButton>

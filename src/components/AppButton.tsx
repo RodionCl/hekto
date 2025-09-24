@@ -1,10 +1,10 @@
-import { Button } from "@mui/material";
+import { Button, ButtonProps } from "@mui/material";
 import { cv } from "../utils/cssVar";
 import { COLORS } from "../constants/colors";
 import { ReactNode } from "react";
 import { rem } from "../utils/pxToRem";
 
-interface ButtonProps {
+export interface AppButtonProps extends ButtonProps {
   children: ReactNode;
   bgColor?: string;
   bgColorHover?: string;
@@ -17,9 +17,9 @@ export default function AppButton({
   bgColor = COLORS.primary,
   bgColorHover = COLORS.primaryDark,
   borderRadius = rem(8),
-  padding = rem(16, 4),
+  padding = rem(16, 40),
   ...props
-}: ButtonProps) {
+}: AppButtonProps) {
   const bgColorValue = cv(bgColor);
   const bgColorHoverValue = cv(bgColorHover);
 

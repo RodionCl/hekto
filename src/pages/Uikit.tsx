@@ -15,6 +15,8 @@ import SelectList from "../components/SelectList";
 import { SelectChangeEvent } from "@mui/material";
 import NumberInput from "../components/InputNumberStepper/InputNumberStepper";
 import ColorCheckbox from "../components/ColorCheckbox";
+import FeaturedCard from "../components/Cards/FeaturedCard/FeaturedCard";
+import { ProductCard } from "../interfaces/Product";
 
 const Div = styled.div<{ $color: string }>`
   width: 90px;
@@ -92,6 +94,33 @@ export default function Uikit() {
     setStepperValue(newValue);
   };
 
+  // For Cards
+  const sampleProduct: ProductCard = {
+    id: "prod-123",
+    imageUrl: "cardImage.png",
+    title: "Wireless Headphones",
+    code: "Y523201",
+    price: "$90.00",
+    wasPrice: "$100.20",
+    productUrl: "/products/wireless-headphones",
+  };
+
+  const handleAddToCart = (id: string) => {
+    alert(`Product with ID: ${id} added to cart!`);
+  };
+
+  const handleAddToWishlist = (id: string) => {
+    alert(`Product with ID: ${id} added to wishlist!`);
+  };
+
+  const handleZoom = (id: string) => {
+    alert(`Zooming image: ${id}`);
+  };
+
+  const handleViewDetails = (id: string) => {
+    alert(`Navigating to details for product ID: ${id}`);
+  };
+
   return (
     <div>
       <h1>heading 1</h1>
@@ -151,7 +180,7 @@ export default function Uikit() {
           borderRadius={rem(32)}
           bgColor={COLORS.white}
           bgColorHover={COLORS.grey2}
-          color={COLORS.tertiary}
+          textColor={COLORS.tertiary}
         >
           <SearchIcon sx={{ fontSize: ICON_SIZES.medium }} />
         </AppIconButton>
@@ -159,7 +188,7 @@ export default function Uikit() {
           padding={rem(8)}
           borderRadius={rem(32)}
           withBackground={false}
-          color={COLORS.tertiary}
+          textColor={COLORS.tertiary}
         >
           <SearchIcon sx={{ fontSize: ICON_SIZES.medium }} />
         </AppIconButton>
@@ -210,6 +239,23 @@ export default function Uikit() {
       <ColorCheckbox customColor={cv(COLORS.secondary)} />
       <ColorCheckbox customColor={cv(COLORS.primary)} />
       <ColorCheckbox customColor={cv(COLORS.success)} />
+
+      <div style={{ display: "flex", gap: 16 }}>
+        <FeaturedCard
+          product={sampleProduct}
+          onAddToCart={() => handleAddToCart(sampleProduct.id)}
+          onAddToWishlist={() => handleAddToWishlist(sampleProduct.id)}
+          onZoom={() => handleZoom(sampleProduct.id)}
+          onViewDetails={() => handleViewDetails(sampleProduct.id)}
+        />
+        <FeaturedCard
+          product={sampleProduct}
+          onAddToCart={() => handleAddToCart(sampleProduct.id)}
+          onAddToWishlist={() => handleAddToWishlist(sampleProduct.id)}
+          onZoom={() => handleZoom(sampleProduct.id)}
+          onViewDetails={() => handleViewDetails(sampleProduct.id)}
+        />
+      </div>
     </div>
   );
 }
