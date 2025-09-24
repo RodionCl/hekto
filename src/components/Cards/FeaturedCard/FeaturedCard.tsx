@@ -11,7 +11,7 @@ import {
   FeaturedProductCode,
   FeaturedProductPrice,
 } from "./FeaturedCard.styles";
-import FeaturedIconActions from "./FeaturedIconActions";
+import IconActions from "../IconActions";
 
 interface FeaturedCardProps {
   product: ProductCard;
@@ -47,7 +47,7 @@ export default function FeaturedCard({
           <img src={imageUrl} alt={`${title} Image`} />
         </Link>
         <FeaturedIconList>
-          <FeaturedIconActions
+          <IconActions
             onAddToCart={onAddToCart}
             onAddToWishlist={onAddToWishlist}
             onZoom={onZoom}

@@ -17,6 +17,7 @@ import NumberInput from "../components/InputNumberStepper/InputNumberStepper";
 import ColorCheckbox from "../components/ColorCheckbox";
 import FeaturedCard from "../components/Cards/FeaturedCard/FeaturedCard";
 import { ProductCard } from "../interfaces/Product";
+import LatestCard from "../components/Cards/LatestCard/LatestCard";
 
 const Div = styled.div<{ $color: string }>`
   width: 90px;
@@ -254,6 +255,28 @@ export default function Uikit() {
           onAddToWishlist={() => handleAddToWishlist(sampleProduct.id)}
           onZoom={() => handleZoom(sampleProduct.id)}
           onViewDetails={() => handleViewDetails(sampleProduct.id)}
+        />
+      </div>
+      <div
+        style={{
+          display: "flex",
+          gap: 16,
+          marginTop: 16,
+          marginBottom: 100,
+          marginLeft: 30,
+        }}
+      >
+        <LatestCard
+          product={sampleProduct}
+          onAddToCart={() => handleAddToCart(sampleProduct.id)}
+          onAddToWishlist={() => handleAddToWishlist(sampleProduct.id)}
+          onZoom={() => handleZoom(sampleProduct.id)}
+        />
+        <LatestCard
+          product={sampleProduct}
+          onAddToCart={() => handleAddToCart(sampleProduct.id)}
+          onAddToWishlist={() => handleAddToWishlist(sampleProduct.id)}
+          onZoom={() => handleZoom(sampleProduct.id)}
         />
       </div>
     </div>

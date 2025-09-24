@@ -1,22 +1,22 @@
-import AppIconButton from "../../AppIconButton";
+import AppIconButton from "../AppIconButton";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ZoomInOutlinedIcon from "@mui/icons-material/ZoomInOutlined";
-import { COLORS } from "../../../constants/colors";
-import { ICON_SIZES } from "../../../constants/iconSizes";
-import { rem } from "../../../utils/pxToRem";
+import { COLORS } from "../../constants/colors";
+import { ICON_SIZES } from "../../constants/iconSizes";
+import { rem } from "../../utils/pxToRem";
 
-type FeaturedIconActionsProps = {
+type IconActionsProps = {
   onAddToCart?: () => void;
   onAddToWishlist?: () => void;
   onZoom?: () => void;
 };
 
-export default function FeaturedIconActions({
+export default function IconActions({
   onAddToCart,
   onAddToWishlist,
   onZoom,
-}: FeaturedIconActionsProps) {
+}: IconActionsProps) {
   return (
     <>
       {onAddToCart && (
