@@ -1,5 +1,4 @@
 import { Button, ButtonProps } from "@mui/material";
-import { cv } from "../utils/cssVar";
 import { COLORS } from "../constants/colors";
 import { ReactNode } from "react";
 import { rem } from "../utils/pxToRem";
@@ -20,8 +19,8 @@ export default function AppButton({
   padding = rem(16, 40),
   ...props
 }: AppButtonProps) {
-  const bgColorValue = cv(bgColor);
-  const bgColorHoverValue = cv(bgColorHover);
+  const bgColorValue = bgColor;
+  const bgColorHoverValue = bgColorHover;
 
   return (
     <Button

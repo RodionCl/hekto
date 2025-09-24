@@ -5,7 +5,6 @@ import {
   InputAdornment,
   InputLabel,
 } from "@mui/material";
-import { cv } from "../utils/cssVar";
 import { visuallyHidden } from "@mui/utils";
 import { COLORS } from "../constants/colors";
 import { rem } from "../utils/pxToRem";
@@ -24,7 +23,7 @@ interface InputProps extends OutlinedInputProps {
 
 export default function InputComplex({
   width = "100%",
-  border = `1px solid ${cv(COLORS.grey2)}`,
+  border = `1px solid ${COLORS.grey2}`,
   name,
   label,
   endAdornmentButton,
@@ -38,7 +37,7 @@ export default function InputComplex({
         sx={{
           fontSize: ICON_SIZES.big,
           border: "none",
-          color: cv(COLORS.danger),
+          color: COLORS.danger,
         }}
       />
     );
@@ -63,7 +62,7 @@ export default function InputComplex({
             height: "auto",
           },
           "&.Mui-error .MuiOutlinedInput-notchedOutline": {
-            borderColor: cv(COLORS.danger),
+            borderColor: COLORS.danger,
           },
         }}
         endAdornment={

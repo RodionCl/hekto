@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { COLORS } from "../../../constants/colors";
 import { rem } from "../../../utils/pxToRem";
-import { cv } from "../../../utils/cssVar";
 
 export const FeaturedImageWrapper = styled.div`
   position: relative;
@@ -47,7 +46,7 @@ interface CardWrapperProps {
 export const FeaturedCardWrapper = styled.div<CardWrapperProps>`
   max-width: ${(props) => props.$maxWidth};
   width: ${(props) => props.$width};
-  background: ${cv(COLORS.white)};
+  background: ${COLORS.white};
   position: relative;
 
   &:hover
@@ -74,7 +73,7 @@ export const FeaturedCardInfo = styled.div`
 `;
 
 export const FeaturedProductTitle = styled.p`
-  color: ${cv(COLORS.primary)};
+  color: ${COLORS.primary};
   margin-bottom: ${rem(20)};
 `;
 
@@ -83,5 +82,5 @@ export const FeaturedProductPrice = styled.p`
 `;
 
 export const FeaturedProductCode = styled.p`
-  color: ${cv(COLORS.grey3)};
+  color: ${COLORS.grey3};
 `;

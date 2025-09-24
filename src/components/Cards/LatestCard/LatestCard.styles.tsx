@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { rem } from "../../../utils/pxToRem";
-import { cv } from "../../../utils/cssVar";
 import { COLORS } from "../../../constants/colors";
 
 export const LatestImageWrapper = styled.div`
@@ -61,5 +60,5 @@ export const LatestProductPrice = styled.p`
 `;
 
 export const LatestProductWasPrice = styled.p`
-  color: ${cv(COLORS.primary)};
+  color: ${COLORS.primary};
 `;

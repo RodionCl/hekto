@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { cv } from "../utils/cssVar";
 import { COLORS } from "../constants/colors";
 import AppButton from "../components/AppButton";
 import SuccessButton from "../components/SuccessButton";
@@ -22,7 +21,7 @@ import LatestCard from "../components/Cards/LatestCard/LatestCard";
 const Div = styled.div<{ $color: string }>`
   width: 90px;
   height: 90px;
-  background: ${({ $color }) => cv($color)};
+  background: ${({ $color }) => $color};
 `;
 
 export default function Uikit() {
@@ -173,7 +172,7 @@ export default function Uikit() {
 
       <div
         style={{
-          backgroundColor: cv(COLORS.black),
+          backgroundColor: COLORS.black,
         }}
       >
         <AppIconButton
@@ -237,9 +236,9 @@ export default function Uikit() {
       />
 
       <ColorCheckbox />
-      <ColorCheckbox customColor={cv(COLORS.secondary)} />
-      <ColorCheckbox customColor={cv(COLORS.primary)} />
-      <ColorCheckbox customColor={cv(COLORS.success)} />
+      <ColorCheckbox customColor={COLORS.secondary} />
+      <ColorCheckbox customColor={COLORS.primary} />
+      <ColorCheckbox customColor={COLORS.success} />
 
       <div style={{ display: "flex", gap: 16 }}>
         <FeaturedCard

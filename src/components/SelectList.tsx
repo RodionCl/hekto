@@ -11,11 +11,10 @@ import {
 import { visuallyHidden } from "@mui/utils";
 import { rem } from "../utils/pxToRem";
 import { COLORS } from "../constants/colors";
-import { cv } from "../utils/cssVar";
 
 const selectFontStyles: SxProps<Theme> = {
   fontSize: rem(14),
-  color: cv(COLORS.black),
+  color: COLORS.black,
   lineHeight: rem(16),
 };
 
@@ -40,7 +39,7 @@ const selectMenuProps: Partial<MenuProps> = {
     "& .MuiMenu-list": {
       padding: rem(16),
       marginTop: rem(5),
-      border: `1px solid ${cv(COLORS.grey2)}`,
+      border: `1px solid ${COLORS.grey2}`,
       borderRadius: rem(8),
     },
     "& .MuiPaper-root": {
@@ -54,10 +53,10 @@ const menuItemStyles: SxProps<Theme> = {
   padding: rem(16, 8),
   borderRadius: rem(8),
   "&:hover": {
-    backgroundColor: cv(COLORS.grey1),
+    backgroundColor: COLORS.grey1,
   },
   "&.Mui-selected": {
-    backgroundColor: cv(COLORS.infoLight),
+    backgroundColor: COLORS.infoLight,
   },
   "&:not(:last-child)": {
     marginBottom: rem(16),

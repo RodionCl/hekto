@@ -1,5 +1,4 @@
 import { Checkbox, CheckboxProps } from "@mui/material";
-import { cv } from "../utils/cssVar";
 import { COLORS } from "../constants/colors";
 
 interface ColorCheckboxProps extends CheckboxProps {
@@ -7,7 +6,7 @@ interface ColorCheckboxProps extends CheckboxProps {
 }
 
 export default function ColorCheckbox({
-  customColor = cv(COLORS.info),
+  customColor = COLORS.info,
   ...props
 }: ColorCheckboxProps) {
   return (
