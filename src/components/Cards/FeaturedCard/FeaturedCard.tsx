@@ -12,6 +12,7 @@ import {
   FeaturedProductPrice,
 } from "./FeaturedCard.styles";
 import IconActions from "../IconActions";
+import { formatCurrency } from "../../../utils/formatCurrency";
 
 interface FeaturedCardProps {
   product: ProductCard;
@@ -22,6 +23,7 @@ interface FeaturedCardProps {
   onZoom?: () => void;
   onViewDetails?: () => void;
   detailsButtonText?: string;
+  productUrl: string;
 }
 
 export default function FeaturedCard({
@@ -32,9 +34,10 @@ export default function FeaturedCard({
   onAddToWishlist,
   onZoom,
   onViewDetails,
+  productUrl,
   detailsButtonText = "View Details",
 }: FeaturedCardProps) {
-  const { imageUrl, title, code, price, productUrl } = product;
+  const { imageUrl, title, code, price } = product;
 
   return (
     <FeaturedCardWrapper
@@ -73,7 +76,7 @@ export default function FeaturedCard({
             Code - {code}
           </FeaturedProductCode>
           <FeaturedProductPrice className="p-large-bold">
-            {price}
+            {formatCurrency(price)}
           </FeaturedProductPrice>
         </FeaturedCardInfo>
       </Link>

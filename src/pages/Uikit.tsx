@@ -17,6 +17,7 @@ import ColorCheckbox from "../components/ColorCheckbox";
 import FeaturedCard from "../components/Cards/FeaturedCard/FeaturedCard";
 import { ProductCard } from "../interfaces/Product";
 import LatestCard from "../components/Cards/LatestCard/LatestCard";
+import TrendingCard from "../components/Cards/Trending/TrendingCard";
 
 const Div = styled.div<{ $color: string }>`
   width: 90px;
@@ -100,9 +101,8 @@ export default function Uikit() {
     imageUrl: "cardImage.png",
     title: "Wireless Headphones",
     code: "Y523201",
-    price: "$90.00",
-    wasPrice: "$100.20",
-    productUrl: "/products/wireless-headphones",
+    price: 90,
+    wasPrice: 100,
   };
 
   const handleAddToCart = (id: string) => {
@@ -243,6 +243,7 @@ export default function Uikit() {
       <div style={{ display: "flex", gap: 16 }}>
         <FeaturedCard
           product={sampleProduct}
+          productUrl={`/products/${sampleProduct.id}`}
           onAddToCart={() => handleAddToCart(sampleProduct.id)}
           onAddToWishlist={() => handleAddToWishlist(sampleProduct.id)}
           onZoom={() => handleZoom(sampleProduct.id)}
@@ -250,6 +251,7 @@ export default function Uikit() {
         />
         <FeaturedCard
           product={sampleProduct}
+          productUrl={`/products/${sampleProduct.id}`}
           onAddToCart={() => handleAddToCart(sampleProduct.id)}
           onAddToWishlist={() => handleAddToWishlist(sampleProduct.id)}
           onZoom={() => handleZoom(sampleProduct.id)}
@@ -267,15 +269,36 @@ export default function Uikit() {
       >
         <LatestCard
           product={sampleProduct}
+          productUrl={`/products/${sampleProduct.id}`}
           onAddToCart={() => handleAddToCart(sampleProduct.id)}
           onAddToWishlist={() => handleAddToWishlist(sampleProduct.id)}
           onZoom={() => handleZoom(sampleProduct.id)}
         />
         <LatestCard
           product={sampleProduct}
+          productUrl={`/products/${sampleProduct.id}`}
           onAddToCart={() => handleAddToCart(sampleProduct.id)}
           onAddToWishlist={() => handleAddToWishlist(sampleProduct.id)}
           onZoom={() => handleZoom(sampleProduct.id)}
+        />
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          gap: 16,
+          marginTop: 16,
+          marginBottom: 100,
+          marginLeft: 30,
+        }}
+      >
+        <TrendingCard
+          product={sampleProduct}
+          productUrl={`/products/${sampleProduct.id}`}
+        />
+        <TrendingCard
+          product={sampleProduct}
+          productUrl={`/products/${sampleProduct.id}`}
         />
       </div>
     </div>

@@ -10,6 +10,7 @@ import {
   LatestProductWasPrice,
 } from "./LatestCard.styles";
 import IconActions from "../IconActions";
+import { formatCurrency } from "../../../utils/formatCurrency";
 
 interface LatestCardProps {
   product: ProductCard;
@@ -18,6 +19,7 @@ interface LatestCardProps {
   onAddToCart?: () => void;
   onAddToWishlist?: () => void;
   onZoom?: () => void;
+  productUrl: string;
 }
 
 export default function LatestCard({
@@ -27,8 +29,9 @@ export default function LatestCard({
   onAddToCart,
   onAddToWishlist,
   onZoom,
+  productUrl,
 }: LatestCardProps) {
-  const { imageUrl, title, price, wasPrice, productUrl } = product;
+  const { imageUrl, title, price, wasPrice } = product;
 
   return (
     <LatestCardWrapper $width={width} $maxWidth={maxWidth}>
@@ -53,10 +56,10 @@ export default function LatestCard({
             {title}
           </LatestProductTitle>
           <LatestProductPrice className="p-large-bold">
-            {price}
+            {formatCurrency(price)}
           </LatestProductPrice>
           <LatestProductWasPrice className="p-small">
-            {wasPrice}
+            {formatCurrency(wasPrice)}
           </LatestProductWasPrice>
         </LatestCardInfo>
       </Link>
