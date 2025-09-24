@@ -12,6 +12,19 @@ type IconActionsProps = {
   onZoom?: () => void;
 };
 
+const iconStyles = {
+  fontSize: ICON_SIZES.medium,
+};
+
+const commonButtonProps = {
+  padding: rem(8),
+  borderRadius: rem(32),
+  bgColor: COLORS.white,
+  bgColorHover: COLORS.grey2,
+  textColor: COLORS.tertiary,
+  withBackground: false,
+};
+
 export default function IconActions({
   onAddToCart,
   onAddToWishlist,
@@ -22,48 +35,33 @@ export default function IconActions({
       {onAddToCart && (
         <li>
           <AppIconButton
+            {...commonButtonProps}
             onClick={onAddToCart}
-            padding={rem(8)}
-            borderRadius={rem(32)}
-            bgColor={COLORS.white}
-            bgColorHover={COLORS.grey2}
-            textColor={COLORS.tertiary}
-            withBackground={false}
             aria-label="Add to cart"
           >
-            <ShoppingCartOutlinedIcon sx={{ fontSize: ICON_SIZES.medium }} />
+            <ShoppingCartOutlinedIcon sx={iconStyles} />
           </AppIconButton>
         </li>
       )}
       {onAddToWishlist && (
         <li>
           <AppIconButton
+            {...commonButtonProps}
             onClick={onAddToWishlist}
-            padding={rem(8)}
-            borderRadius={rem(32)}
-            bgColor={COLORS.white}
-            bgColorHover={COLORS.grey2}
-            textColor={COLORS.tertiary}
-            withBackground={false}
             aria-label="Add to wishlist"
           >
-            <FavoriteBorderOutlinedIcon sx={{ fontSize: ICON_SIZES.medium }} />
+            <FavoriteBorderOutlinedIcon sx={iconStyles} />
           </AppIconButton>
         </li>
       )}
       {onZoom && (
         <li>
           <AppIconButton
+            {...commonButtonProps}
             onClick={onZoom}
-            padding={rem(8)}
-            borderRadius={rem(32)}
-            bgColor={COLORS.white}
-            bgColorHover={COLORS.grey2}
-            textColor={COLORS.tertiary}
-            withBackground={false}
             aria-label="Zoom in on image"
           >
-            <ZoomInOutlinedIcon sx={{ fontSize: ICON_SIZES.medium }} />
+            <ZoomInOutlinedIcon sx={iconStyles} />
           </AppIconButton>
         </li>
       )}
