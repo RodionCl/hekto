@@ -5,11 +5,13 @@ import { rem } from "../../../utils/pxToRem";
 export const TrendingImageWrapper = styled.div`
   position: relative;
   height: 232px;
+  padding: ${rem(16, 16, 0, 16)};
 
   img {
     object-fit: cover;
     height: 100%;
     width: 100%;
+    border-radius: 4px;
   }
 `;
 
@@ -36,6 +38,7 @@ export const TrendingCardWrapper = styled.div<CardWrapperProps>`
   width: ${(props) => props.$width};
   background: ${COLORS.white};
   position: relative;
+  border-radius: 8px;
 `;
 
 export const TrendingCardInfo = styled.div`
