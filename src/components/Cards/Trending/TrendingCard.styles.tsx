@@ -15,19 +15,6 @@ export const TrendingImageWrapper = styled.div`
   }
 `;
 
-export const TrendingButtonWrapper = styled.div`
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-`;
-
 interface CardWrapperProps {
   $width: string;
   $maxWidth: string;
