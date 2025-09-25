@@ -18,6 +18,7 @@ import FeaturedCard from "../components/Cards/FeaturedCard/FeaturedCard";
 import { ProductCard } from "../interfaces/Product";
 import LatestCard from "../components/Cards/LatestCard/LatestCard";
 import TrendingCard from "../components/Cards/Trending/TrendingCard";
+import FilterCard from "../components/Cards/FilterCard/FilterCard";
 
 const Div = styled.div<{ $color: string }>`
   width: 90px;
@@ -103,6 +104,12 @@ export default function Uikit() {
     code: "Y523201",
     price: 90,
     wasPrice: 100,
+    rating: {
+      value: 3.21,
+      votedCount: 756,
+    },
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   };
 
   const handleAddToCart = (id: string) => {
@@ -299,6 +306,35 @@ export default function Uikit() {
         <TrendingCard
           product={sampleProduct}
           productUrl={`/products/${sampleProduct.id}`}
+        />
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          gap: 16,
+          marginTop: 16,
+          marginBottom: 100,
+          marginLeft: 30,
+          marginRight: 30,
+        }}
+      >
+        <FilterCard
+          product={sampleProduct}
+          productUrl={`/products/${sampleProduct.id}`}
+          maxWidth="100%"
+          onAddToCart={() => handleAddToCart(sampleProduct.id)}
+          onAddToWishlist={() => handleAddToWishlist(sampleProduct.id)}
+          onZoom={() => handleZoom(sampleProduct.id)}
+        />
+        <FilterCard
+          product={sampleProduct}
+          productUrl={`/products/${sampleProduct.id}`}
+          maxWidth="350px"
+          onAddToCart={() => handleAddToCart(sampleProduct.id)}
+          onAddToWishlist={() => handleAddToWishlist(sampleProduct.id)}
+          onZoom={() => handleZoom(sampleProduct.id)}
+          isGrid={true}
         />
       </div>
     </div>

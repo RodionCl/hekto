@@ -29,4 +29,9 @@ export interface ProductCard {
   code: string;
   price: number;
   wasPrice: number;
+  rating: {
+    value: number;
+    votedCount: number;
+  };
+  description: string;
 }
