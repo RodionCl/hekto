@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { COLORS } from "../../../constants/colors";
 import { rem } from "../../../utils/pxToRem";
 
-export const TrendingImageWrapper = styled.div`
+export const ImageWrapper = styled.div`
   position: relative;
   height: 232px;
   padding: ${rem(16, 16, 0, 16)};
@@ -20,7 +20,7 @@ interface CardWrapperProps {
   $maxWidth: string;
 }
 
-export const TrendingCardWrapper = styled.div<CardWrapperProps>`
+export const CardWrapper = styled.div<CardWrapperProps>`
   max-width: ${(props) => props.$maxWidth};
   width: ${(props) => props.$width};
   background: ${COLORS.white};
@@ -28,7 +28,7 @@ export const TrendingCardWrapper = styled.div<CardWrapperProps>`
   border-radius: 8px;
 `;
 
-export const TrendingCardInfo = styled.div`
+export const CardInfo = styled.div`
   padding: ${rem(20, 0)};
   display: flex;
   flex-direction: column;
@@ -38,18 +38,18 @@ export const TrendingCardInfo = styled.div`
   white-space: nowrap;
 `;
 
-export const TrendingProductTitle = styled.p`
+export const ProductTitle = styled.p`
   color: ${COLORS.primary};
   margin-bottom: ${rem(20)};
 `;
 
-export const TrendingPriceWrapper = styled.div`
+export const PriceWrapper = styled.div`
   display: flex;
   gap: ${rem(16)};
   align-items: center;
 `;
 
-export const TrendingProductWasPrice = styled.p`
+export const ProductWasPrice = styled.p`
   color: ${COLORS.grey3};
   text-decoration: line-through;
 `;

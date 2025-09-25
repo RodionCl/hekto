@@ -1,16 +1,7 @@
 import { Link } from "react-router-dom";
 import { ProductCard } from "../../../interfaces/Product";
 import SuccessButton from "../../SuccessButton";
-import {
-  FeaturedCardWrapper,
-  FeaturedImageWrapper,
-  FeaturedIconList,
-  FeaturedButtonWrapper,
-  FeaturedCardInfo,
-  FeaturedProductTitle,
-  FeaturedProductCode,
-  FeaturedProductPrice,
-} from "./FeaturedCard.styles";
+import * as S from "./FeaturedCard.styles";
 import IconActions from "../IconActions";
 import { formatCurrency } from "../../../utils/formatCurrency";
 
@@ -40,46 +31,38 @@ export default function FeaturedCard({
   const { imageUrl, title, code, price } = product;
 
   return (
-    <FeaturedCardWrapper
-      $width={width}
-      $maxWidth={maxWidth}
-      className="card-shadow"
-    >
-      <FeaturedImageWrapper>
+    <S.CardWrapper $width={width} $maxWidth={maxWidth} className="card-shadow">
+      <S.ImageWrapper>
         <Link to={productUrl} tabIndex={-1}>
           <img src={imageUrl} alt={`${title} Image`} />
         </Link>
-        <FeaturedIconList>
+        <S.IconList>
           <IconActions
             onAddToCart={onAddToCart}
             onAddToWishlist={onAddToWishlist}
             onZoom={onZoom}
           />
-        </FeaturedIconList>
+        </S.IconList>
         {onViewDetails && (
-          <FeaturedButtonWrapper>
+          <S.ButtonWrapper>
             <SuccessButton onClick={onViewDetails}>
               {detailsButtonText}
             </SuccessButton>
-          </FeaturedButtonWrapper>
+          </S.ButtonWrapper>
         )}
-      </FeaturedImageWrapper>
+      </S.ImageWrapper>
       <Link
         to={productUrl}
         style={{ textDecoration: "none", color: "inherit" }}
       >
-        <FeaturedCardInfo>
-          <FeaturedProductTitle className="p-large-bold">
-            {title}
-          </FeaturedProductTitle>
-          <FeaturedProductCode className="p-small">
-            Code - {code}
-          </FeaturedProductCode>
-          <FeaturedProductPrice className="p-large-bold">
+        <S.CardInfo>
+          <S.ProductTitle className="p-large-bold">{title}</S.ProductTitle>
+          <S.ProductCode className="p-small">Code - {code}</S.ProductCode>
+          <S.ProductPrice className="p-large-bold">
             {formatCurrency(price)}
-          </FeaturedProductPrice>
-        </FeaturedCardInfo>
+          </S.ProductPrice>
+        </S.CardInfo>
       </Link>
-    </FeaturedCardWrapper>
+    </S.CardWrapper>
   );
 }

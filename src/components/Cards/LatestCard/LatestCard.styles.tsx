@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { rem } from "../../../utils/pxToRem";
 import { COLORS } from "../../../constants/colors";
 
-export const LatestImageWrapper = styled.div`
+export const ImageWrapper = styled.div`
   position: relative;
   height: 232px;
 
@@ -13,7 +13,7 @@ export const LatestImageWrapper = styled.div`
   }
 `;
 
-export const LatestIconList = styled.ul`
+export const IconList = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -31,18 +31,18 @@ interface CardWrapperProps {
   $maxWidth: string;
 }
 
-export const LatestCardWrapper = styled.div<CardWrapperProps>`
+export const CardWrapper = styled.div<CardWrapperProps>`
   max-width: ${(props) => props.$maxWidth};
   width: ${(props) => props.$width};
   position: relative;
 
-  &:hover ${LatestIconList}, &:focus-within ${LatestIconList}, {
+  &:hover ${IconList}, &:focus-within ${IconList}, {
     opacity: 1;
     pointer-events: auto;
   }
 `;
 
-export const LatestCardInfo = styled.div`
+export const CardInfo = styled.div`
   padding: ${rem(20, 0)};
   display: flex;
   align-items: center;
@@ -51,14 +51,14 @@ export const LatestCardInfo = styled.div`
   white-space: nowrap;
 `;
 
-export const LatestProductTitle = styled.p`
+export const ProductTitle = styled.p`
   margin-right: auto;
 `;
 
-export const LatestProductPrice = styled.p`
+export const ProductPrice = styled.p`
   margin-right: 16px;
 `;
 
-export const LatestProductWasPrice = styled.p`
+export const ProductWasPrice = styled.p`
   color: ${COLORS.primary};
 `;

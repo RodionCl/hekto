@@ -1,13 +1,6 @@
 import { Link } from "react-router-dom";
 import { ProductCard } from "../../../interfaces/Product";
-import {
-  TrendingCardWrapper,
-  TrendingImageWrapper,
-  TrendingCardInfo,
-  TrendingProductTitle,
-  TrendingProductWasPrice,
-  TrendingPriceWrapper,
-} from "./TrendingCard.styles";
+import * as S from "./TrendingCard.styles";
 import { formatCurrency } from "../../../utils/formatCurrency";
 
 interface TrendingCardProps {
@@ -26,32 +19,26 @@ export default function TrendingCard({
   const { imageUrl, title, price, wasPrice } = product;
 
   return (
-    <TrendingCardWrapper
-      $width={width}
-      $maxWidth={maxWidth}
-      className="card-shadow"
-    >
-      <TrendingImageWrapper>
+    <S.CardWrapper $width={width} $maxWidth={maxWidth} className="card-shadow">
+      <S.ImageWrapper>
         <Link to={productUrl} tabIndex={-1}>
           <img src={imageUrl} alt={`${title} Image`} />
         </Link>
-      </TrendingImageWrapper>
+      </S.ImageWrapper>
       <Link
         to={productUrl}
         style={{ textDecoration: "none", color: "inherit" }}
       >
-        <TrendingCardInfo>
-          <TrendingProductTitle className="p-large-bold">
-            {title}
-          </TrendingProductTitle>
-          <TrendingPriceWrapper>
+        <S.CardInfo>
+          <S.ProductTitle className="p-large-bold">{title}</S.ProductTitle>
+          <S.PriceWrapper>
             <p className="p-large-bold">{formatCurrency(price)}</p>
-            <TrendingProductWasPrice className="p-small">
+            <S.ProductWasPrice className="p-small">
               {formatCurrency(wasPrice)}
-            </TrendingProductWasPrice>
-          </TrendingPriceWrapper>
-        </TrendingCardInfo>
+            </S.ProductWasPrice>
+          </S.PriceWrapper>
+        </S.CardInfo>
       </Link>
-    </TrendingCardWrapper>
+    </S.CardWrapper>
   );
 }

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { COLORS } from "../../../constants/colors";
 import { rem } from "../../../utils/pxToRem";
 
-export const FeaturedImageWrapper = styled.div`
+export const ImageWrapper = styled.div`
   position: relative;
   height: 232px;
 
@@ -13,7 +13,7 @@ export const FeaturedImageWrapper = styled.div`
   }
 `;
 
-export const FeaturedIconList = styled.ul`
+export const IconList = styled.ul`
   list-style: none;
   display: flex;
   gap: ${rem(8)};
@@ -25,7 +25,7 @@ export const FeaturedIconList = styled.ul`
   transition: opacity 0.3s ease;
 `;
 
-export const FeaturedButtonWrapper = styled.div`
+export const ButtonWrapper = styled.div`
   position: absolute;
   bottom: 8px;
   left: 50%;
@@ -43,26 +43,26 @@ interface CardWrapperProps {
   $maxWidth: string;
 }
 
-export const FeaturedCardWrapper = styled.div<CardWrapperProps>`
+export const CardWrapper = styled.div<CardWrapperProps>`
   max-width: ${(props) => props.$maxWidth};
   width: ${(props) => props.$width};
   background: ${COLORS.white};
   position: relative;
 
   &:hover
-    ${FeaturedIconList},
+    ${IconList},
     &:focus-within
-    ${FeaturedIconList},
+    ${IconList},
     &:hover
-    ${FeaturedButtonWrapper},
+    ${ButtonWrapper},
     &:focus-within
-    ${FeaturedButtonWrapper} {
+    ${ButtonWrapper} {
     opacity: 1;
     pointer-events: auto;
   }
 `;
 
-export const FeaturedCardInfo = styled.div`
+export const CardInfo = styled.div`
   padding: ${rem(20, 0)};
   display: flex;
   flex-direction: column;
@@ -72,15 +72,15 @@ export const FeaturedCardInfo = styled.div`
   white-space: nowrap;
 `;
 
-export const FeaturedProductTitle = styled.p`
+export const ProductTitle = styled.p`
   color: ${COLORS.primary};
   margin-bottom: ${rem(20)};
 `;
 
-export const FeaturedProductPrice = styled.p`
+export const ProductPrice = styled.p`
   margin-top: ${rem(8)};
 `;
 
-export const FeaturedProductCode = styled.p`
+export const ProductCode = styled.p`
   color: ${COLORS.grey3};
 `;

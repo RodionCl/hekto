@@ -1,14 +1,6 @@
 import { Link } from "react-router-dom";
 import { ProductCard } from "../../../interfaces/Product";
-import {
-  LatestCardWrapper,
-  LatestImageWrapper,
-  LatestIconList,
-  LatestCardInfo,
-  LatestProductTitle,
-  LatestProductPrice,
-  LatestProductWasPrice,
-} from "./LatestCard.styles";
+import * as S from "./LatestCard.styles";
 import IconActions from "../IconActions";
 import { formatCurrency } from "../../../utils/formatCurrency";
 
@@ -34,35 +26,33 @@ export default function LatestCard({
   const { imageUrl, title, price, wasPrice } = product;
 
   return (
-    <LatestCardWrapper $width={width} $maxWidth={maxWidth}>
-      <LatestImageWrapper>
+    <S.CardWrapper $width={width} $maxWidth={maxWidth}>
+      <S.ImageWrapper>
         <Link to={productUrl} tabIndex={-1}>
           <img src={imageUrl} alt={`${title} Image`} />
         </Link>
-        <LatestIconList>
+        <S.IconList>
           <IconActions
             onAddToCart={onAddToCart}
             onAddToWishlist={onAddToWishlist}
             onZoom={onZoom}
           />
-        </LatestIconList>
-      </LatestImageWrapper>
+        </S.IconList>
+      </S.ImageWrapper>
       <Link
         to={productUrl}
         style={{ textDecoration: "none", color: "inherit" }}
       >
-        <LatestCardInfo>
-          <LatestProductTitle className="p-large-bold">
-            {title}
-          </LatestProductTitle>
-          <LatestProductPrice className="p-large-bold">
+        <S.CardInfo>
+          <S.ProductTitle className="p-large-bold">{title}</S.ProductTitle>
+          <S.ProductPrice className="p-large-bold">
             {formatCurrency(price)}
-          </LatestProductPrice>
-          <LatestProductWasPrice className="p-small">
+          </S.ProductPrice>
+          <S.ProductWasPrice className="p-small">
             {formatCurrency(wasPrice)}
-          </LatestProductWasPrice>
-        </LatestCardInfo>
+          </S.ProductWasPrice>
+        </S.CardInfo>
       </Link>
-    </LatestCardWrapper>
+    </S.CardWrapper>
   );
 }
