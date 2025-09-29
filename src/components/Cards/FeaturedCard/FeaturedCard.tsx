@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { ProductCard } from "../../../interfaces/Product";
+import { Product } from "../../../interfaces/Product";
 import SuccessButton from "../../SuccessButton";
 import * as S from "./FeaturedCard.styles";
 import IconActions from "../IconActions";
 import { formatCurrency } from "../../../utils/formatCurrency";
 
 interface FeaturedCardProps {
-  product: ProductCard;
+  product: Product;
   width?: string;
   maxWidth?: string;
   onAddToCart?: () => void;
@@ -28,13 +28,13 @@ export default function FeaturedCard({
   productUrl,
   detailsButtonText = "View Details",
 }: FeaturedCardProps) {
-  const { imageUrl, title, code, price } = product;
+  const { thumbnail, name, code, price } = product;
 
   return (
     <S.CardWrapper $width={width} $maxWidth={maxWidth} className="card-shadow">
       <S.ImageWrapper>
         <Link to={productUrl} tabIndex={-1}>
-          <img src={imageUrl} alt={`${title} Image`} />
+          <img src={thumbnail} alt={`${name} Image`} />
         </Link>
         <S.IconList>
           <IconActions
@@ -56,7 +56,7 @@ export default function FeaturedCard({
         style={{ textDecoration: "none", color: "inherit" }}
       >
         <S.CardInfo>
-          <S.ProductTitle className="p-large-bold">{title}</S.ProductTitle>
+          <S.ProductTitle className="p-large-bold">{name}</S.ProductTitle>
           <S.ProductCode className="p-small">Code - {code}</S.ProductCode>
           <S.ProductPrice className="p-large-bold">
             {formatCurrency(price)}

@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { ProductCard as ProductCardInterface } from "../../../interfaces/Product";
+import { Product } from "../../../interfaces/Product";
 import * as S from "./FilterCard.styles";
 import IconActions from "../IconActions";
 import { formatCurrency } from "../../../utils/formatCurrency";
 import { Rating } from "@mui/material";
 
 interface FilterCardProps {
-  product: ProductCardInterface;
+  product: Product;
   width?: string;
   maxWidth?: string;
   onAddToCart?: () => void;
@@ -26,7 +26,7 @@ export default function FilterCard({
   productUrl,
   isGrid = false,
 }: FilterCardProps) {
-  const { imageUrl, title, price, wasPrice, rating, description } = product;
+  const { thumbnail, name, price, wasPrice, rating, description } = product;
 
   return (
     <S.Wrapper
@@ -41,7 +41,7 @@ export default function FilterCard({
         style={{ display: "flex", flexShrink: "0" }}
       >
         <S.ImageWrapper>
-          <img src={imageUrl} alt={`${title} Image`} />
+          <img src={thumbnail} alt={`${name} Image`} />
         </S.ImageWrapper>
       </Link>
       <S.Info>
@@ -50,7 +50,7 @@ export default function FilterCard({
           style={{ textDecoration: "none", color: "inherit", flex: "1" }}
         >
           <S.Header>
-            <S.Title className="p-large-bold">{title}</S.Title>
+            <S.Title className="p-large-bold">{name}</S.Title>
             <Rating name="read-only" value={rating.value} readOnly />
           </S.Header>
           <S.PriceWrapper>

@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { ProductCard } from "../../../interfaces/Product";
+import { Product } from "../../../interfaces/Product";
 import * as S from "./LatestCard.styles";
 import IconActions from "../IconActions";
 import { formatCurrency } from "../../../utils/formatCurrency";
 
 interface LatestCardProps {
-  product: ProductCard;
+  product: Product;
   width?: string;
   maxWidth?: string;
   onAddToCart?: () => void;
@@ -23,13 +23,13 @@ export default function LatestCard({
   onZoom,
   productUrl,
 }: LatestCardProps) {
-  const { imageUrl, title, price, wasPrice } = product;
+  const { thumbnail, name, price, wasPrice } = product;
 
   return (
     <S.CardWrapper $width={width} $maxWidth={maxWidth}>
       <S.ImageWrapper>
         <Link to={productUrl} tabIndex={-1}>
-          <img src={imageUrl} alt={`${title} Image`} />
+          <img src={thumbnail} alt={`${name} Image`} />
         </Link>
         <S.IconList>
           <IconActions
@@ -44,7 +44,7 @@ export default function LatestCard({
         style={{ textDecoration: "none", color: "inherit" }}
       >
         <S.CardInfo>
-          <S.ProductTitle className="p-large-bold">{title}</S.ProductTitle>
+          <S.ProductTitle className="p-large-bold">{name}</S.ProductTitle>
           <S.ProductPrice className="p-large-bold">
             {formatCurrency(price)}
           </S.ProductPrice>

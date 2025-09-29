@@ -21,17 +21,3 @@ export interface Product {
   thumbnail: string;
   imageSet: string[];
 }
-
-export interface ProductCard {
-  id: string;
-  imageUrl: string;
-  title: string;
-  code: string;
-  price: number;
-  wasPrice: number;
-  rating: {
-    value: number;
-    votedCount: number;
-  };
-  description: string;
-}
