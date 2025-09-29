@@ -27,6 +27,7 @@ export const Info = styled.div`
   flex-direction: column;
   height: 100%;
   position: relative;
+  flex: 1;
 `;
 
 export const Header = styled.div`

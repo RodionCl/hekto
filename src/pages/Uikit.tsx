@@ -10,7 +10,7 @@ import SearchButton from "../components/SearchButton";
 import Form from "../components/Form";
 import { FormEvent, useState } from "react";
 import { rem } from "../utils/pxToRem";
-import SelectList from "../components/SelectList";
+import SelectList from "../components/SelectList/SelectList";
 import { SelectChangeEvent } from "@mui/material";
 import NumberInput from "../components/InputNumberStepper/InputNumberStepper";
 import ColorCheckbox from "../components/ColorCheckbox";

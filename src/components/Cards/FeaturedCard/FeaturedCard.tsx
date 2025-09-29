@@ -31,7 +31,11 @@ export default function FeaturedCard({
   const { thumbnail, name, code, price } = product;
 
   return (
-    <S.CardWrapper $width={width} $maxWidth={maxWidth} className="card-shadow">
+    <S.CardWrapper
+      $width={width}
+      $maxWidth={maxWidth}
+      className="card-shadow card-floating"
+    >
       <S.ImageWrapper>
         <Link to={productUrl} tabIndex={-1}>
           <img src={thumbnail} alt={`${name} Image`} />

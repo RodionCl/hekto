@@ -167,9 +167,20 @@ label {
 
 .card-shadow {
   box-shadow: 8px 24px 32px -16px #10175026;
-  transition: box-shadow 0.3s ease-in-out;
 }
 
-.card-shadow:hover {
+.card-shadow:hover,
+.card-shadow:focus-within {
   box-shadow: 8px 64px 80px -16px #10175026;
+}
+
+.card-floating:hover,
+.card-floating:focus-within {
+  transform: translateY(-15px);
+}
+
+.card-shadow.card-floating {
+  transition:
+    box-shadow 0.3s ease-in-out,
+    transform 0.3s;
 }
