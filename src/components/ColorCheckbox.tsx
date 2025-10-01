@@ -17,6 +17,7 @@ export default function ColorCheckbox({
         "&.Mui-checked": {
           color: customColor,
         },
+        padding: 0,
       }}
     />
   );
