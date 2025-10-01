@@ -1,7 +1,7 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Uikit from "./pages/Uikit";
-import Products from "./pages/product/Products";
+import Products from "./pages/products/Products";
 
 const router = createBrowserRouter([
   {

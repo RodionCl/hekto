@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 
-export function useFetch<T>(fetchFn: () => Promise<T>, initialValue: T) {
+export function useFetch<T>(
+  fetchFn: () => Promise<T>,
+  initialValue: T,
+  deps: any[] = [],
+) {
   const [isFetching, setIsFetching] = useState<boolean>(false);
   const [error, setError] = useState<{ message: string } | null>(null);
   const [fetchedData, setFetchedData] = useState<T>(initialValue);
@@ -24,7 +28,7 @@ export function useFetch<T>(fetchFn: () => Promise<T>, initialValue: T) {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, deps);
 
   return {
     isFetching,

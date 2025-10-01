@@ -1,14 +1,6 @@
-import { environment } from "../environment";
-import { Product } from "../interfaces/Product";
-
-type PriceRange = { min: number; max?: number };
-
-export interface ProductFilters {
-  brands?: string[];
-  ratings?: number[];
-  categories?: string[];
-  priceRanges?: PriceRange[];
-}
+import { environment } from "../../environment";
+import { PaginatedResult, ProductFilters } from "../../interfaces/FetchProduct";
+import { Product } from "../../interfaces/Product";
 
 function buildQueryParams(filters?: ProductFilters): string {
   const params = new URLSearchParams();
@@ -30,12 +22,24 @@ function buildQueryParams(filters?: ProductFilters): string {
     if (max !== undefined) params.append("price_lte", max.toString());
   });
 
+  if (filters?.sort) {
+    const field = filters.sort;
+    params.append("_sort", field);
+  }
+
+  if (filters?.page) {
+    params.append("_page", filters.page.toString());
+  }
+  if (filters?.perPage) {
+    params.append("_limit", filters.perPage.toString());
+  }
+
   return params.toString();
 }
 
 export async function fetchProducts(
   filters?: ProductFilters,
-): Promise<Product[]> {
+): Promise<PaginatedResult<Product>> {
   const query = buildQueryParams(filters);
   const url = `${environment.BACK_API}/products${query ? `?${query}` : ""}`;
 
@@ -45,5 +49,12 @@ export async function fetchProducts(
     throw new Error("Failed to fetch products");
   }
 
-  return await res.json();
+  const data: Product[] = await res.json();
+
+  const total = parseInt(res.headers.get("x-total-count") || "0", 10);
+
+  return {
+    data,
+    total,
+  };
 }
