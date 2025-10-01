@@ -100,7 +100,7 @@ export const Wrapper = styled.div<WrapperProps>`
     $isGrid &&
     css`
       flex-direction: column;
-      height: auto;
+      height: 448px;
       gap: ${rem(16)};
 
       ${ImageWrapper} {
@@ -117,7 +117,7 @@ export const Wrapper = styled.div<WrapperProps>`
       }
 
       ${PriceWrapper} {
-        margin: ${rem(16, 0)};
+        margin: ${rem(8, 0, 12, 0)};
       }
 
       ${IconList} {

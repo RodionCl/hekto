@@ -13,6 +13,8 @@ export const selectMenuStyles: SxProps<Theme> = {
   "& .MuiSelect-select": {
     padding: rem(12),
     minHeight: 0,
+    display: "flex",
+    alignItems: "center",
   },
 };
 
