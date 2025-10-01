@@ -25,7 +25,6 @@ export default function ProductHeaderFilters({
   viewMode,
   onViewToggle,
 }: ProductFiltersProps) {
-  console.log("Rendering Filters");
   return (
     <S.PageFilter>
       <S.SelectListWrapper>

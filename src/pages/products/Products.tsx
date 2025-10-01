@@ -5,10 +5,10 @@ import { Layout, FilterListWrapper } from "./components/Layout.styles";
 import ProductHeaderFilters from "./components/ProductHeaderFilters";
 import ProductList from "./components/ProductList";
 import Breadcrumbs from "./components/Breadcrumbs";
-import SideFilter from "./components/SideFilter";
 import { parseProductFilters } from "../../utils/parseProductFilters";
 import { parseViewMode, ViewMode } from "../../utils/parseViewFilters";
 import { ProductFilters as ProductFiltersType } from "../../interfaces/FetchProduct";
+import { SideFilter } from "./components/SideFilter";
 
 export default function Products() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -64,11 +64,9 @@ export default function Products() {
   return (
     <Layout>
       <h1>Products</h1>
-
       <Breadcrumbs />
-
       <ProductHeaderFilters
-        perPage={filters.perPage!.toString()}
+        perPage={filters.perPage.toString()}
         sort={filters.sort ?? ""}
         onPerPageChange={handlePerPageChange}
         onSortByChange={handleSortByChange}
@@ -77,9 +75,6 @@ export default function Products() {
       />
 
       <FilterListWrapper>
-        {/* <div */}
-        {/*   style={{ width: "170px", height: "1000px", backgroundColor: "red" }} */}
-        {/* ></div> */}
         <SideFilter />
         <ProductList filters={filters} isGrid={viewMode === "grid"} />
       </FilterListWrapper>

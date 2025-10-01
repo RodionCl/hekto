@@ -76,24 +76,3 @@ export const StyledMain = styled.main<{ $isGrid: boolean }>`
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   `}
 `;
-
-export const AsideFilter = styled.aside`
-  display: flex;
-  flex-direction: column;
-  gap: ${rem(48)};
-`;
-
-export const FilterCategory = styled.aside`
-  display: flex;
-  flex-direction: column;
-  gap: ${rem(24)};
-`;
-
-export const OptionsWrapper = styled.ul`
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: ${rem(16)};
-  max-height: 200px;
-  overflow-y: scroll;
-`;

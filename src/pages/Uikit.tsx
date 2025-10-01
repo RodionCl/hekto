@@ -37,7 +37,6 @@ export default function Uikit() {
       setHasError(true);
       return;
     }
-    console.log("Form ", data);
   };
 
   const handleInputChange = () => {
@@ -56,7 +55,6 @@ export default function Uikit() {
       setHasError2(true);
       return;
     }
-    console.log("Form ", data);
   };
 
   const handleInputChange2 = () => {

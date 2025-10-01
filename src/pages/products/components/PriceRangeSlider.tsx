@@ -19,7 +19,7 @@ export default function PriceRangeSlider({
 
   const getClampedParam = (key: string, fallback: number) => {
     const value = Number(searchParams.get(key));
-    return isNaN(value) ? fallback : clamp(value);
+    return isNaN(value) || value === 0 ? fallback : clamp(value);
   };
 
   const [sliderValue, setSliderValue] = useState<number[]>([
@@ -28,6 +28,10 @@ export default function PriceRangeSlider({
   ]);
 
   useEffect(() => {
+    const priceGteExists = searchParams.has("price_gte");
+    const priceLteExists = searchParams.has("price_lte");
+    if (!priceGteExists && !priceLteExists) return;
+
     const [minVal, maxVal] = sliderValue.map(clamp);
     const params = new URLSearchParams(searchParams);
 

@@ -10,26 +10,44 @@ function buildQueryParams(filters?: ProductFilters): string {
   });
 
   filters?.ratings?.forEach((rating) => {
-    params.append("rating.value_gte", rating.toString());
+    params.append("rating.value_gte", (rating - 0.5).toString());
+    params.append("rating.value_lte", (rating + 0.5).toString());
   });
 
   filters?.categories?.forEach((cat) => {
     params.append("category", cat);
   });
 
+  if (filters?.colors) {
+    let colors = "";
+    filters.colors.forEach((color) => {
+      colors += `(?=.*${color})`;
+    });
+    params.append("colors_like", colors);
+  }
+
   filters?.priceRanges?.forEach(({ min, max }) => {
     if (min !== undefined) params.append("price_gte", min.toString());
     if (max !== undefined) params.append("price_lte", max.toString());
   });
 
+  if (filters?.discountPercentage !== undefined) {
+    params.append(
+      "discountPercentage_gte",
+      filters.discountPercentage.toString(),
+    );
+  }
+
   if (filters?.sort) {
-    const field = filters.sort;
-    params.append("_sort", field);
+    const [sortField, sortOrder] = filters.sort.split("_");
+    params.append("_sort", sortField);
+    params.append("_order", sortOrder);
   }
 
   if (filters?.page) {
     params.append("_page", filters.page.toString());
   }
+
   if (filters?.perPage) {
     params.append("_limit", filters.perPage.toString());
   }

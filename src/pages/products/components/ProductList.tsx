@@ -3,12 +3,12 @@ import { useFetch } from "../../../hooks/useFetch";
 import { Product } from "../../../interfaces/Product";
 import { fetchProducts } from "../../../utils/fetch/fetchProducts";
 import FilterCard from "../../../components/Cards/FilterCard/FilterCard";
+import FilterCardSkeleton from "../../../components/Cards/FilterCard/FilterCardSkeleton";
 import { StyledMain, GridWrapper } from "./Layout.styles";
 import {
   PaginatedResult,
   ProductFilters as ProductFiltersType,
 } from "../../../interfaces/FetchProduct";
-import FilterCardSkeleton from "../../../components/Cards/FilterCard/FilterCardSkeleton";
 
 interface ProductListProps {
   filters: ProductFiltersType;
@@ -27,6 +27,9 @@ export default function ProductList({ filters, isGrid }: ProductListProps) {
     [filters],
   );
 
+  const currentPage = filters.page;
+  const totalPage = Math.ceil(products.total / filters.perPage);
+
   const handleAddToCart = useCallback((id: string) => {
     alert(`Product with ID: ${id} added to cart!`);
   }, []);
@@ -39,46 +42,25 @@ export default function ProductList({ filters, isGrid }: ProductListProps) {
     alert(`Zooming image: ${id}`);
   }, []);
 
-  console.log("Rendering Product List", filters, isFetching, products);
-
-  // if (isFetching) {
-  //   return <p>Loading...</p>;
-  // }
-
   return (
     <GridWrapper>
       <StyledMain $isGrid={isGrid}>
-        {Array.from({ length: 8 }).map((_, index) => (
-          <FilterCardSkeleton key={index} isGrid={isGrid} maxWidth="100%" />
-        ))}
-        {/* {isFetching */}
-        {/*   ? Array.from({ length: 8 }).map((_, index) => ( */}
-        {/*       <FilterCardSkeleton key={index} isGrid={isGrid} /> */}
-        {/*     )) */}
-        {/*   : products.data.map((product) => ( */}
-        {/*       <FilterCard */}
-        {/*         key={product.id} */}
-        {/*         product={product} */}
-        {/*         productUrl={`/products/${product.id}`} */}
-        {/*         maxWidth="100%" */}
-        {/*         onAddToCart={() => handleAddToCart(product.id)} */}
-        {/*         onAddToWishlist={() => handleAddToWishlist(product.id)} */}
-        {/*         onZoom={() => handleZoom(product.id)} */}
-        {/*         isGrid={isGrid} */}
-        {/*       /> */}
-        {/*     ))} */}
-        {/* {products.data.map((product) => ( */}
-        {/*   <FilterCard */}
-        {/*     key={product.id} */}
-        {/*     product={product} */}
-        {/*     productUrl={`/products/${product.id}`} */}
-        {/*     maxWidth="100%" */}
-        {/*     onAddToCart={() => handleAddToCart(product.id)} */}
-        {/*     onAddToWishlist={() => handleAddToWishlist(product.id)} */}
-        {/*     onZoom={() => handleZoom(product.id)} */}
-        {/*     isGrid={isGrid} */}
-        {/*   /> */}
-        {/* ))} */}
+        {isFetching
+          ? Array.from({ length: 8 }).map((_, index) => (
+              <FilterCardSkeleton key={index} isGrid={isGrid} />
+            ))
+          : products.data.map((product) => (
+              <FilterCard
+                key={product.id}
+                product={product}
+                productUrl={`/products/${product.id}`}
+                maxWidth="100%"
+                onAddToCart={() => handleAddToCart(product.id)}
+                onAddToWishlist={() => handleAddToWishlist(product.id)}
+                onZoom={() => handleZoom(product.id)}
+                isGrid={isGrid}
+              />
+            ))}
       </StyledMain>
     </GridWrapper>
   );
