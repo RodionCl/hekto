@@ -217,6 +217,7 @@ export default function Uikit() {
 
       <Form onSubmit={handleFormSubmit} style={{ maxWidth: "400px" }}>
         <InputComplex
+          label="My first complex input"
           name="search"
           placeholder="Search..."
           aria-label="Enter product"
@@ -230,6 +231,7 @@ export default function Uikit() {
 
       <Form onSubmit={handleFormSubmit2} style={{ maxWidth: "400px" }}>
         <InputComplex
+          label="My second complex input"
           name="search2"
           placeholder="Search2..."
           aria-label="Enter product2"

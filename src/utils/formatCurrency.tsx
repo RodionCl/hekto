@@ -1,10 +1,13 @@
 export function formatCurrency(
   amount: number,
+  currency: string = "USD",
+  locale: string = "en-US",
   fractionDigits: number = 2,
 ): string {
-  const formatted = amount
-    .toFixed(fractionDigits)
-    .replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-
-  return `$${formatted}`;
+  return new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency,
+    minimumFractionDigits: fractionDigits,
+    maximumFractionDigits: fractionDigits,
+  }).format(amount);
 }
