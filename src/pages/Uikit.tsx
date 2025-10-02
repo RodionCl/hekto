@@ -220,9 +220,8 @@ export default function Uikit() {
           name="search"
           placeholder="Search..."
           aria-label="Enter product"
-          error={hasError}
           onChange={handleInputChange}
-          hasError={hasError}
+          error={hasError}
           endAdornmentButton={
             <SearchButton aria-label="Search Button" type="submit" />
           }
@@ -234,9 +233,8 @@ export default function Uikit() {
           name="search2"
           placeholder="Search2..."
           aria-label="Enter product2"
-          error={hasError2}
           onChange={handleInputChange2}
-          hasError={hasError2}
+          error={hasError2}
         ></InputComplex>
       </Form>
 

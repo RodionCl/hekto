@@ -16,7 +16,7 @@ interface InputProps extends OutlinedInputProps {
   width?: string;
   name: string;
   label?: string;
-  hasError: boolean;
+  // hasError: boolean;
   endAdornmentButton?: ReactNode;
 }
 
@@ -24,12 +24,13 @@ export default function InputComplex({
   width = "100%",
   name,
   label,
+  error,
   endAdornmentButton,
-  hasError,
+  // hasError,
   ...props
 }: InputProps) {
   let inputEnd: ReactNode = endAdornmentButton;
-  if (!endAdornmentButton && hasError) {
+  if (!endAdornmentButton && error) {
     inputEnd = (
       <ErrorOutlineIcon
         sx={{
@@ -50,7 +51,7 @@ export default function InputComplex({
         {...props}
         name={name}
         id={name}
-        error={hasError}
+        error={error}
         sx={{
           padding: `${rem(2, 2, 2, 16)}`,
           "& .MuiOutlinedInput-input": {

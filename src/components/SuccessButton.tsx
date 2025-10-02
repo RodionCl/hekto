@@ -3,7 +3,7 @@ import AppButton, { AppButtonProps } from "@/components/AppButton";
 import { COLORS } from "@/constants/colors";
 import { rem } from "@/utils/pxToRem";
 
-const ButtonText = styled.p`
+const ButtonText = styled.span`
   font-size: ${rem(12)};
   font-family: "Josefin", sans-serif;
   line-height: ${rem(14)};
