@@ -12,6 +12,7 @@ import { parseProductFilters } from "@/utils/parseProductFilters";
 import { parseViewMode, ViewMode } from "@/utils/parseViewFilters";
 import { ProductFilters as ProductFiltersType } from "@/interfaces/FetchProduct";
 import { SideFilter } from "@/pages/products/components/SideFilter";
+import { PARAMS_PAGE } from "@/constants/queryParams";
 
 export default function Products() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -29,7 +30,7 @@ export default function Products() {
   function handleViewToggle(newView: ViewMode) {
     setSearchParams(
       (prev) => {
-        prev.set("view", newView);
+        prev.set(PARAMS_PAGE.view, newView);
         return prev;
       },
       { replace: true },
@@ -41,8 +42,8 @@ export default function Products() {
       const newPerPage = event.target.value;
       setSearchParams(
         (prev) => {
-          prev.set("perPage", newPerPage);
-          prev.set("page", "1");
+          prev.set(PARAMS_PAGE.perPage, newPerPage);
+          prev.set(PARAMS_PAGE.page, "1");
           return prev;
         },
         { replace: true },

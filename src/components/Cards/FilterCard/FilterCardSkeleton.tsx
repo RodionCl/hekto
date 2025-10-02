@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { Wrapper } from "./FilterCard.styles";
+import { rem } from "@/utils/pxToRem";
 
 const shimmer = keyframes`
   0% {
@@ -33,7 +34,7 @@ type ShimmerProps = {
 
 export default function FilterCardSkeleton({
   width = "100%",
-  maxWidth = "350px",
+  maxWidth = rem(350),
   isGrid = false,
 }: ShimmerProps) {
   return (

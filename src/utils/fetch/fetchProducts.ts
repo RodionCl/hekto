@@ -1,3 +1,4 @@
+import { PARAMS_QUERY } from "@/constants/queryParams";
 import { environment } from "../../environment";
 import { PaginatedResult, ProductFilters } from "../../interfaces/FetchProduct";
 import { Product } from "../../interfaces/Product";
@@ -6,50 +7,51 @@ export function buildQueryParams(filters?: ProductFilters): string {
   const params = new URLSearchParams();
 
   filters?.brands?.forEach((brand) => {
-    params.append("brand", brand);
+    params.append(PARAMS_QUERY.brands, brand);
   });
 
   filters?.ratings?.forEach((rating) => {
-    params.append("rating.value_gte", (rating - 0.5).toString());
-    params.append("rating.value_lte", (rating + 0.5).toString());
+    params.append(PARAMS_QUERY.ratingsGte, (rating - 0.5).toString());
+    params.append(PARAMS_QUERY.ratingsLte, (rating + 0.5).toString());
   });
 
   filters?.categories?.forEach((cat) => {
-    params.append("category", cat);
+    params.append(PARAMS_QUERY.categories, cat);
   });
 
   if (filters?.colors) {
-    let colors = "";
-    filters.colors.forEach((color) => {
-      colors += `(?=.*${color})`;
-    });
-    params.append("colors_like", colors);
+    const colorRegex = filters.colors.map((color) => `(?=.*${color})`).join("");
+    params.append(PARAMS_QUERY.colors, colorRegex);
   }
 
   filters?.priceRanges?.forEach(({ min, max }) => {
-    if (min !== undefined) params.append("price_gte", min.toString());
-    if (max !== undefined) params.append("price_lte", max.toString());
+    if (min !== undefined) {
+      params.append(PARAMS_QUERY.priceMin, min.toString());
+    }
+    if (max !== undefined) {
+      params.append(PARAMS_QUERY.priceMax, max.toString());
+    }
   });
 
   if (filters?.discountPercentage !== undefined) {
     params.append(
-      "discountPercentage_gte",
+      PARAMS_QUERY.discountPercentage,
       filters.discountPercentage.toString(),
     );
   }
 
   if (filters?.sort) {
     const [sortField, sortOrder] = filters.sort.split("_");
-    params.append("_sort", sortField);
-    params.append("_order", sortOrder);
+    params.append(PARAMS_QUERY.sortField, sortField);
+    params.append(PARAMS_QUERY.sortOrder, sortOrder);
   }
 
   if (filters?.page) {
-    params.append("_page", filters.page.toString());
+    params.append(PARAMS_QUERY.page, filters.page.toString());
   }
 
   if (filters?.perPage) {
-    params.append("_limit", filters.perPage.toString());
+    params.append(PARAMS_QUERY.perPage, filters.perPage.toString());
   }
 
   return params.toString();

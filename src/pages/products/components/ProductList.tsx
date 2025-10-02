@@ -14,6 +14,7 @@ import {
   ProductFilters as ProductFiltersType,
 } from "@/interfaces/FetchProduct";
 import ProductPagination from "@/pages/products/components/ProductPagination";
+import { PARAMS_PAGE } from "@/constants/queryParams";
 
 interface ProductListProps {
   filters: ProductFiltersType;
@@ -49,7 +50,7 @@ export default function ProductList({ filters, isGrid }: ProductListProps) {
   function setPage(page: number) {
     setSearchParams(
       (prev) => {
-        prev.set("page", page.toString());
+        prev.set(PARAMS_PAGE.page, page.toString());
         return prev;
       },
       { replace: true },
