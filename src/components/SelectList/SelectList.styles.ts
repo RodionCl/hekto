@@ -1,6 +1,6 @@
 import { SxProps, Theme, MenuProps } from "@mui/material";
-import { rem } from "../../utils/pxToRem";
-import { COLORS } from "../../constants/colors";
+import { rem } from "@/utils/pxToRem";
+import { COLORS } from "@/constants/colors";
 
 export const selectFontStyles: SxProps<Theme> = {
   fontSize: rem(14),

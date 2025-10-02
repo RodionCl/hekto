@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { Product } from "../../../interfaces/Product";
-import * as S from "./TrendingCard.styles";
-import { formatCurrency } from "../../../utils/formatCurrency";
+import { Product } from "@/interfaces/Product";
+import * as S from "@/components/Cards/Trending/TrendingCard.styles";
+import { formatCurrency } from "@/utils/formatCurrency";
 
 interface TrendingCardProps {
   product: Product;

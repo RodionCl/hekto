@@ -1,7 +1,7 @@
 import { Button, ButtonProps } from "@mui/material";
-import { COLORS } from "../constants/colors";
 import { ReactNode } from "react";
-import { rem } from "../utils/pxToRem";
+import { COLORS } from "@/constants/colors";
+import { rem } from "@/utils/pxToRem";
 
 export interface AppButtonProps extends ButtonProps {
   children: ReactNode;

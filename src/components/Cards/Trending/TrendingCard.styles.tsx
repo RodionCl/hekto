@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { COLORS } from "../../../constants/colors";
-import { rem } from "../../../utils/pxToRem";
+import { COLORS } from "@/constants/colors";
+import { rem } from "@/utils/pxToRem";
 
 export const ImageWrapper = styled.div`
   position: relative;

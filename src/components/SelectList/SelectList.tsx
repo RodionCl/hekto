@@ -8,10 +8,10 @@ import {
 import { visuallyHidden } from "@mui/utils";
 
 import {
-  selectMenuStyles,
   selectMenuProps,
+  selectMenuStyles,
   menuItemStyles,
-} from "./SelectList.styles";
+} from "@/components/SelectList/SelectList.styles";
 
 interface SelectListProps<T extends string> {
   value: T;

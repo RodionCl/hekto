@@ -1,5 +1,5 @@
 import { Checkbox, CheckboxProps } from "@mui/material";
-import { COLORS } from "../constants/colors";
+import { COLORS } from "@/constants/colors";
 
 interface ColorCheckboxProps extends CheckboxProps {
   customColor?: string;

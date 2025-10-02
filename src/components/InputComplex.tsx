@@ -5,12 +5,12 @@ import {
   InputAdornment,
   InputLabel,
 } from "@mui/material";
-import { visuallyHidden } from "@mui/utils";
-import { COLORS } from "../constants/colors";
-import { rem } from "../utils/pxToRem";
 import { ReactNode } from "react";
+import { visuallyHidden } from "@mui/utils";
+import { COLORS } from "@/constants/colors";
+import { rem } from "@/utils/pxToRem";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
-import { ICON_SIZES } from "../constants/iconSizes";
+import { ICON_SIZES } from "@/constants/iconSizes";
 
 interface InputProps extends OutlinedInputProps {
   width?: string;

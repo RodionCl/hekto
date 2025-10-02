@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import AppButton, { AppButtonProps } from "./AppButton";
-import { COLORS } from "../constants/colors";
-import { rem } from "../utils/pxToRem";
+import AppButton, { AppButtonProps } from "@/components/AppButton";
+import { COLORS } from "@/constants/colors";
+import { rem } from "@/utils/pxToRem";
 
 const ButtonText = styled.p`
   font-size: ${rem(12)};

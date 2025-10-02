@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import FormControl from "@mui/material/FormControl";
-import ActionButton from "./ActionButton";
+import ActionButton from "@/components/InputNumberStepper/ActionButton";
 
 const inputStyles = {
   "& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button": {

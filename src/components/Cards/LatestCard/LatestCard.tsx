@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { Product } from "../../../interfaces/Product";
-import * as S from "./LatestCard.styles";
-import IconActions from "../IconActions";
-import { formatCurrency } from "../../../utils/formatCurrency";
+import { Product } from "@/interfaces/Product";
+import * as S from "@/components/Cards/LatestCard/LatestCard.styles";
+import IconActions from "@/components/Cards/IconActions";
+import { formatCurrency } from "@/utils/formatCurrency";
 
 interface LatestCardProps {
   product: Product;

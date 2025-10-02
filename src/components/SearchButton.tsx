@@ -1,12 +1,10 @@
-import AppIconButton from "./AppIconButton";
 import SearchIcon from "@mui/icons-material/Search";
-import { ICON_SIZES } from "../constants/iconSizes";
-import { ButtonHTMLAttributes } from "react";
-import { rem } from "../utils/pxToRem";
+import AppIconButton from "@/components/AppIconButton";
+import { ICON_SIZES } from "@/constants/iconSizes";
+import { rem } from "@/utils/pxToRem";
+import { AppButtonProps } from "@/components/AppButton";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
-
-export default function SearchButton({ ...props }: ButtonProps) {
+export default function SearchButton({ ...props }: AppButtonProps) {
   return (
     <AppIconButton padding={rem(6, 14)} {...props}>
       <SearchIcon sx={{ fontSize: ICON_SIZES.big }} />

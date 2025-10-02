@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { Product } from "../../../interfaces/Product";
-import SuccessButton from "../../SuccessButton";
-import * as S from "./FeaturedCard.styles";
-import IconActions from "../IconActions";
-import { formatCurrency } from "../../../utils/formatCurrency";
+import { Product } from "@/interfaces/Product";
+import SuccessButton from "@/components/SuccessButton";
+import * as S from "@/components/Cards/FeaturedCard/FeaturedCard.styles";
+import IconActions from "@/components/Cards/IconActions";
+import { formatCurrency } from "@/utils/formatCurrency";
 
 interface FeaturedCardProps {
   product: Product;

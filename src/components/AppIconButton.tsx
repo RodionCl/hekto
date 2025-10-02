@@ -1,9 +1,9 @@
 import { IconButton, IconButtonProps } from "@mui/material";
 import { ReactNode } from "react";
-import { COLORS } from "../constants/colors";
-import { rem } from "../utils/pxToRem";
+import { COLORS } from "@/constants/colors";
+import { rem } from "@/utils/pxToRem";
 
-interface ButtonProps extends IconButtonProps {
+export interface AppButtonProps extends IconButtonProps {
   children: ReactNode;
   bgColor?: string;
   bgColorHover?: string;
@@ -21,8 +21,9 @@ export default function AppIconButton({
   padding = rem(8),
   textColor = COLORS.white,
   withBackground = true,
+  color,
   ...props
-}: ButtonProps) {
+}: AppButtonProps) {
   const bgColorValue = withBackground ? bgColor : "transparent";
   const bgColorHoverValue = bgColorHover;
 

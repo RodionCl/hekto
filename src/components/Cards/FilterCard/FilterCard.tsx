@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { Product } from "../../../interfaces/Product";
-import * as S from "./FilterCard.styles";
-import IconActions from "../IconActions";
-import { formatCurrency } from "../../../utils/formatCurrency";
 import { Rating } from "@mui/material";
+import { Product } from "@/interfaces/Product";
+import * as S from "@/components/Cards/FilterCard/FilterCard.styles";
+import IconActions from "@/components/Cards/IconActions";
+import { formatCurrency } from "@/utils/formatCurrency";
 
 interface FilterCardProps {
   product: Product;

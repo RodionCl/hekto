@@ -1,24 +1,24 @@
 import styled from "styled-components";
-import { COLORS } from "../constants/colors";
-import AppButton from "../components/AppButton";
-import SuccessButton from "../components/SuccessButton";
-import AppIconButton from "../components/AppIconButton";
-import SearchIcon from "@mui/icons-material/Search";
-import { ICON_SIZES } from "../constants/iconSizes";
-import InputComplex from "../components/InputComplex";
-import SearchButton from "../components/SearchButton";
-import Form from "../components/Form";
 import { FormEvent, useState } from "react";
-import { rem } from "../utils/pxToRem";
-import SelectList from "../components/SelectList/SelectList";
+import SearchIcon from "@mui/icons-material/Search";
 import { SelectChangeEvent } from "@mui/material";
-import NumberInput from "../components/InputNumberStepper/InputNumberStepper";
-import ColorCheckbox from "../components/ColorCheckbox";
-import FeaturedCard from "../components/Cards/FeaturedCard/FeaturedCard";
-import { Product } from "../interfaces/Product";
-import LatestCard from "../components/Cards/LatestCard/LatestCard";
-import TrendingCard from "../components/Cards/Trending/TrendingCard";
-import FilterCard from "../components/Cards/FilterCard/FilterCard";
+import { COLORS } from "@/constants/colors";
+import AppButton from "@/components/AppButton";
+import SuccessButton from "@/components/SuccessButton";
+import AppIconButton from "@/components/AppIconButton";
+import { ICON_SIZES } from "@/constants/iconSizes";
+import InputComplex from "@/components/InputComplex";
+import SearchButton from "@/components/SearchButton";
+import Form from "@/components/Form";
+import { rem } from "@/utils/pxToRem";
+import SelectList from "@/components/SelectList/SelectList";
+import InputNumberStepper from "@/components/InputNumberStepper/InputNumberStepper";
+import ColorCheckbox from "@/components/ColorCheckbox";
+import FeaturedCard from "@/components/Cards/FeaturedCard/FeaturedCard";
+import { Product } from "@/interfaces/Product";
+import LatestCard from "@/components/Cards/LatestCard/LatestCard";
+import TrendingCard from "@/components/Cards/Trending/TrendingCard";
+import FilterCard from "@/components/Cards/FilterCard/FilterCard";
 
 const Div = styled.div<{ $color: string }>`
   width: 90px;
@@ -249,7 +249,7 @@ export default function Uikit() {
         options={fruitOptions}
       ></SelectList>
 
-      <NumberInput
+      <InputNumberStepper
         value={stepperValue}
         onIncrement={handleIncrement}
         onDecrement={handleDecrement}
