@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Slider, Box } from "@mui/material";
 import { COLORS } from "@/constants/colors";
+import { PARAMS_PAGE } from "@/constants/queryParams";
 
 interface PriceRangeSliderProps {
   minBoundary: number;
@@ -23,24 +24,24 @@ export default function PriceRangeSlider({
   };
 
   const [sliderValue, setSliderValue] = useState<number[]>([
-    getClampedParam("price_gte", minBoundary),
-    getClampedParam("price_lte", maxBoundary),
+    getClampedParam(PARAMS_PAGE.priceMin, minBoundary),
+    getClampedParam(PARAMS_PAGE.priceMax, maxBoundary),
   ]);
 
   useEffect(() => {
-    const priceGteExists = searchParams.has("price_gte");
-    const priceLteExists = searchParams.has("price_lte");
+    const priceGteExists = searchParams.has(PARAMS_PAGE.priceMin);
+    const priceLteExists = searchParams.has(PARAMS_PAGE.priceMax);
     if (!priceGteExists && !priceLteExists) return;
 
     const [minVal, maxVal] = sliderValue.map(clamp);
     const params = new URLSearchParams(searchParams);
 
     if (
-      minVal !== Number(params.get("price_gte")) ||
-      maxVal !== Number(params.get("price_lte"))
+      minVal !== Number(params.get(PARAMS_PAGE.priceMin)) ||
+      maxVal !== Number(params.get(PARAMS_PAGE.priceMax))
     ) {
-      params.set("price_gte", String(minVal));
-      params.set("price_lte", String(maxVal));
+      params.set(PARAMS_PAGE.priceMin, String(minVal));
+      params.set(PARAMS_PAGE.priceMax, String(maxVal));
       setSearchParams(params, { replace: true });
     }
 
@@ -57,8 +58,8 @@ export default function PriceRangeSlider({
   ) => {
     const [newMin, newMax] = newValue as number[];
     const params = new URLSearchParams(searchParams);
-    params.set("price_gte", String(newMin));
-    params.set("price_lte", String(newMax));
+    params.set(PARAMS_PAGE.priceMin, String(newMin));
+    params.set(PARAMS_PAGE.priceMax, String(newMax));
     setSearchParams(params, { replace: true });
   };
 

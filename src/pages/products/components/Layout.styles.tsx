@@ -2,12 +2,13 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { rem } from "@/utils/pxToRem";
 import { COLORS } from "@/constants/colors";
+import { MAX_WIDTH } from "@/constants/styleConstants";
 
 export const Layout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 1440px;
+  max-width: ${MAX_WIDTH};
   margin: 0 auto;
 `;
 

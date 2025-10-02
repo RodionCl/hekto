@@ -6,6 +6,7 @@ export const ImageWrapper = styled.div`
   position: relative;
   flex-shrink: 0;
   width: 100%;
+  height: ${rem(200)};
 
   img {
     object-fit: cover;
