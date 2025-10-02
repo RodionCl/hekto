@@ -23,6 +23,8 @@ interface InputNumberStepperProps {
   onIncrement: () => void;
   onDecrement: () => void;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  min?: number;
+  max?: number;
 }
 
 export default function InputNumberStepper({
@@ -30,13 +32,23 @@ export default function InputNumberStepper({
   onIncrement,
   onDecrement,
   onChange,
+  min = -Infinity,
+  max = Infinity,
 }: InputNumberStepperProps) {
   const decrementButton = (
-    <ActionButton type="decrement" onClick={onDecrement}></ActionButton>
+    <ActionButton
+      type="decrement"
+      onClick={onDecrement}
+      disabled={value <= min}
+    />
   );
 
   const incrementButton = (
-    <ActionButton type="increment" onClick={onIncrement}></ActionButton>
+    <ActionButton
+      type="increment"
+      onClick={onIncrement}
+      disabled={value >= max}
+    />
   );
 
   return (
@@ -49,6 +61,10 @@ export default function InputNumberStepper({
           onChange={onChange}
           startAdornment={decrementButton}
           endAdornment={incrementButton}
+          inputProps={{
+            min,
+            max,
+          }}
           sx={inputStyles}
         />
       </FormControl>

@@ -5,9 +5,10 @@ import Add from "@mui/icons-material/Add";
 interface ButtonProps {
   onClick: () => void;
   type: "increment" | "decrement";
+  disabled?: boolean;
 }
 
-export default function ActionButton({ onClick, type }: ButtonProps) {
+export default function ActionButton({ onClick, type, disabled }: ButtonProps) {
   const icon =
     type === "decrement" ? (
       <Remove fontSize="small" />
@@ -26,6 +27,7 @@ export default function ActionButton({ onClick, type }: ButtonProps) {
         onClick={onClick}
         size="small"
         edge={edge}
+        disabled={disabled}
       >
         {icon}
       </IconButton>

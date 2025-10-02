@@ -251,6 +251,8 @@ export default function Uikit() {
 
       <InputNumberStepper
         value={stepperValue}
+        min={0}
+        max={10}
         onIncrement={handleIncrement}
         onDecrement={handleDecrement}
         onChange={handleChange}
