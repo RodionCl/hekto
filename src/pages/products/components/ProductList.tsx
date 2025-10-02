@@ -1,7 +1,10 @@
 import { useCallback } from "react";
 import { useFetch } from "../../../hooks/useFetch";
 import { Product } from "../../../interfaces/Product";
-import { fetchProducts } from "../../../utils/fetch/fetchProducts";
+import {
+  buildQueryParams,
+  fetchProducts,
+} from "../../../utils/fetch/fetchProducts";
 import FilterCard from "../../../components/Cards/FilterCard/FilterCard";
 import FilterCardSkeleton from "../../../components/Cards/FilterCard/FilterCardSkeleton";
 import { StyledMain, GridWrapper } from "./Layout.styles";
@@ -9,6 +12,8 @@ import {
   PaginatedResult,
   ProductFilters as ProductFiltersType,
 } from "../../../interfaces/FetchProduct";
+import ProductPagination from "./ProductPagination";
+import { useSearchParams } from "react-router-dom";
 
 interface ProductListProps {
   filters: ProductFiltersType;
@@ -24,7 +29,7 @@ export default function ProductList({ filters, isGrid }: ProductListProps) {
       data: [],
       total: 0,
     },
-    [filters],
+    [buildQueryParams(filters)],
   );
 
   const currentPage = filters.page;
@@ -42,12 +47,24 @@ export default function ProductList({ filters, isGrid }: ProductListProps) {
     alert(`Zooming image: ${id}`);
   }, []);
 
+  const [_, setSearchParams] = useSearchParams();
+
+  function setPage(page: number) {
+    setSearchParams(
+      (prev) => {
+        prev.set("page", page.toString());
+        return prev;
+      },
+      { replace: true },
+    );
+  }
+
   return (
     <GridWrapper>
       <StyledMain $isGrid={isGrid}>
         {isFetching
-          ? Array.from({ length: 8 }).map((_, index) => (
-              <FilterCardSkeleton key={index} isGrid={isGrid} />
+          ? Array.from({ length: 12 }).map((_, index) => (
+              <FilterCardSkeleton key={index} maxWidth="100%" isGrid={isGrid} />
             ))
           : products.data.map((product) => (
               <FilterCard
@@ -62,6 +79,11 @@ export default function ProductList({ filters, isGrid }: ProductListProps) {
               />
             ))}
       </StyledMain>
+      <ProductPagination
+        currentPage={currentPage}
+        totalPage={totalPage}
+        onPageChange={setPage}
+      ></ProductPagination>
     </GridWrapper>
   );
 }

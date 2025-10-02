@@ -2,7 +2,7 @@ import { environment } from "../../environment";
 import { PaginatedResult, ProductFilters } from "../../interfaces/FetchProduct";
 import { Product } from "../../interfaces/Product";
 
-function buildQueryParams(filters?: ProductFilters): string {
+export function buildQueryParams(filters?: ProductFilters): string {
   const params = new URLSearchParams();
 
   filters?.brands?.forEach((brand) => {

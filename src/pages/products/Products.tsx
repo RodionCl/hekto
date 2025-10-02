@@ -39,6 +39,7 @@ export default function Products() {
       setSearchParams(
         (prev) => {
           prev.set("perPage", newPerPage);
+          prev.set("page", "1");
           return prev;
         },
         { replace: true },
