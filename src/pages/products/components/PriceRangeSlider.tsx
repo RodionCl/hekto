@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Slider, Box } from "@mui/material";
-import { COLORS } from "../../../constants/colors";
+import { COLORS } from "@/constants/colors";
 
 interface PriceRangeSliderProps {
   minBoundary: number;

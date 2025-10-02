@@ -3,11 +3,11 @@ import WindowOutlinedIcon from "@mui/icons-material/WindowOutlined";
 import WindowIcon from "@mui/icons-material/Window";
 import TableRowsOutlinedIcon from "@mui/icons-material/TableRowsOutlined";
 import TableRowsIcon from "@mui/icons-material/TableRows";
-import AppIconButton from "../../../components/AppIconButton";
-import { COLORS } from "../../../constants/colors";
-import { rem } from "../../../utils/pxToRem";
-import { ICON_SIZES } from "../../../constants/iconSizes";
-import { ViewMode } from "../../../utils/parseViewFilters";
+import AppIconButton from "@/components/AppIconButton";
+import { COLORS } from "@/constants/colors";
+import { rem } from "@/utils/pxToRem";
+import { ICON_SIZES } from "@/constants/iconSizes";
+import { ViewMode } from "@/utils/parseViewFilters";
 
 interface ViewToggleProps {
   viewMode: ViewMode;

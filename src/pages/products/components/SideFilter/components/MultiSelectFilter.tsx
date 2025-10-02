@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
-import ColorCheckbox from "../../../../../components/ColorCheckbox";
-import { colorFilterCategory } from "../../../../../utils/filterCategoryHelpers";
 import { OptionItem } from "./SideFilter.styles";
+import ColorCheckbox from "@/components/ColorCheckbox";
+import { colorFilterCategory } from "@/utils/filterCategoryHelpers";
 
 interface MultiSelectFilterProps {
   filterKey: string;

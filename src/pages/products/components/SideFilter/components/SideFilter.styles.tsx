@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { rem } from "../../../../../utils/pxToRem";
+import { rem } from "@/utils/pxToRem";
 
 export const AsideFilter = styled.aside`
   display: flex;

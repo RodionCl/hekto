@@ -1,14 +1,17 @@
 import { SelectChangeEvent } from "@mui/material";
 import { useSearchParams } from "react-router-dom";
 import { useMemo, useCallback } from "react";
-import { Layout, FilterListWrapper } from "./components/Layout.styles";
-import ProductHeaderFilters from "./components/ProductHeaderFilters";
-import ProductList from "./components/ProductList";
-import Breadcrumbs from "./components/Breadcrumbs";
-import { parseProductFilters } from "../../utils/parseProductFilters";
-import { parseViewMode, ViewMode } from "../../utils/parseViewFilters";
-import { ProductFilters as ProductFiltersType } from "../../interfaces/FetchProduct";
-import { SideFilter } from "./components/SideFilter";
+import {
+  Layout,
+  FilterListWrapper,
+} from "@/pages/products/components/Layout.styles";
+import ProductHeaderFilters from "@/pages/products/components/ProductHeaderFilters";
+import ProductList from "@/pages/products/components/ProductList";
+import Breadcrumbs from "@/pages/products/components/Breadcrumbs";
+import { parseProductFilters } from "@/utils/parseProductFilters";
+import { parseViewMode, ViewMode } from "@/utils/parseViewFilters";
+import { ProductFilters as ProductFiltersType } from "@/interfaces/FetchProduct";
+import { SideFilter } from "@/pages/products/components/SideFilter";
 
 export default function Products() {
   const [searchParams, setSearchParams] = useSearchParams();

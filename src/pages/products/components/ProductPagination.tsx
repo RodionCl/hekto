@@ -1,6 +1,6 @@
 import { Pagination, Stack } from "@mui/material";
-import { COLORS } from "../../../constants/colors";
-import { rem } from "../../../utils/pxToRem";
+import { COLORS } from "@/constants/colors";
+import { rem } from "@/utils/pxToRem";
 
 interface PaginationProps {
   currentPage: number;

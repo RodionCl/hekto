@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { rem } from "../../../utils/pxToRem";
 import { NavLink } from "react-router-dom";
-import { COLORS } from "../../../constants/colors";
+import { rem } from "@/utils/pxToRem";
+import { COLORS } from "@/constants/colors";
 
 export const Layout = styled.div`
   display: flex;

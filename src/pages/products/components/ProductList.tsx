@@ -1,19 +1,19 @@
 import { useCallback } from "react";
-import { useFetch } from "../../../hooks/useFetch";
-import { Product } from "../../../interfaces/Product";
+import { useSearchParams } from "react-router-dom";
+import { useFetch } from "@/hooks/useFetch";
+import { Product } from "@/interfaces/Product";
+import { buildQueryParams, fetchProducts } from "@/utils/fetch/fetchProducts";
+import FilterCard from "@/components/Cards/FilterCard/FilterCard";
+import FilterCardSkeleton from "@/components/Cards/FilterCard/FilterCardSkeleton";
 import {
-  buildQueryParams,
-  fetchProducts,
-} from "../../../utils/fetch/fetchProducts";
-import FilterCard from "../../../components/Cards/FilterCard/FilterCard";
-import FilterCardSkeleton from "../../../components/Cards/FilterCard/FilterCardSkeleton";
-import { StyledMain, GridWrapper } from "./Layout.styles";
+  StyledMain,
+  GridWrapper,
+} from "@/pages/products/components/Layout.styles";
 import {
   PaginatedResult,
   ProductFilters as ProductFiltersType,
-} from "../../../interfaces/FetchProduct";
-import ProductPagination from "./ProductPagination";
-import { useSearchParams } from "react-router-dom";
+} from "@/interfaces/FetchProduct";
+import ProductPagination from "@/pages/products/components/ProductPagination";
 
 interface ProductListProps {
   filters: ProductFiltersType;

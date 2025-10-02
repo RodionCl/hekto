@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import {
   colorFilterCategory,
   labelCategory,
-} from "../../../../../utils/filterCategoryHelpers";
+} from "@/utils/filterCategoryHelpers";
 import { OptionItem } from "./SideFilter.styles";
 
 interface SingleSelectFilterProps {

@@ -1,5 +1,5 @@
-import { useSideFilter } from "./hooks/useSideFilter";
-import { SideFilters } from "../../../../interfaces/SideFilters";
+import { useSideFilter } from "@/hooks/useSideFilter";
+import { SideFilters } from "@/interfaces/SideFilters";
 import {
   AsideFilter,
   FilterCategory,

@@ -1,4 +1,4 @@
-import { SortOption } from "../interfaces/FetchProduct";
+import { SortOption } from "@/interfaces/FetchProduct";
 
 export const perPageOptions = [
   { value: "10", label: "10" },

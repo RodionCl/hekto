@@ -1,7 +1,7 @@
-import { SideFilters } from "../../../../../interfaces/SideFilters";
 import MultiSelectFilter from "./MultiSelectFilter";
 import SingleSelectFilter from "./SingleSelectFilter";
 import RangeFilter from "./RangeFilter";
+import { SideFilters } from "@/interfaces/SideFilters";
 
 type FilterType = "multi-select" | "single-select" | "range";
 

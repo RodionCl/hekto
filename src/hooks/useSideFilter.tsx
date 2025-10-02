@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
-import { useFetch } from "../../../../../hooks/useFetch";
-import { SideFilters } from "../../../../../interfaces/SideFilters";
-import { fetchSideFilters } from "../../../../../utils/fetch/fetchFilters";
+import { useFetch } from "@/hooks/useFetch";
+import { SideFilters } from "@/interfaces/SideFilters";
+import { fetchSideFilters } from "@/utils/fetch/fetchFilters";
 
 type FilterType = "multi-select" | "single-select" | "range";
 
