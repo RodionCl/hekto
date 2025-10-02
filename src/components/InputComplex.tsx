@@ -15,7 +15,7 @@ import { ICON_SIZES } from "@/constants/iconSizes";
 interface InputProps extends OutlinedInputProps {
   width?: string;
   name: string;
-  label?: string;
+  label: string;
   // hasError: boolean;
   endAdornmentButton?: ReactNode;
 }
