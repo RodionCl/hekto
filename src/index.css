@@ -1,68 +1,191 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+@font-face {
+  font-family: "Josefin";
+  src: url("/fonts/JosefinSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Josefin";
+  src: url("/fonts/JosefinSans-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Josefin";
+  src: url("/fonts/JosefinSans-Regular.woff2") format("woff2");
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-display: swap;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+@font-face {
+  font-family: "Lato";
+  src: url("/fonts/Lato-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
-a:hover {
-  color: #535bf2;
+
+@font-face {
+  font-family: "Lato";
+  src: url("/fonts/Lato-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: black;
+  line-height: 2rem;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-family: "Josefin", sans-serif;
+  font-weight: 700;
+  font-size: 5.2rem;
+  line-height: 6.4rem;
+  letter-spacing: 0.015em;
+  text-transform: capitalize;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+h2 {
+  font-family: "Josefin", sans-serif;
+  font-weight: 700;
+  font-size: 4.4rem;
+  line-height: 5.2rem;
+  letter-spacing: 0.015em;
+  text-transform: capitalize;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+h3 {
+  font-family: "Josefin", sans-serif;
+  font-weight: 700;
+  font-size: 3.6rem;
+  line-height: 4.4rem;
+  letter-spacing: 0.015em;
+  text-transform: capitalize;
+}
+
+h4 {
+  font-family: "Josefin", sans-serif;
+  font-weight: 700;
+  font-size: 2.8rem;
+  line-height: 3.6rem;
+  letter-spacing: 0.015em;
+  text-transform: capitalize;
+}
+
+.subtitle {
+  font-family: "Josefin", sans-serif;
+  font-weight: 700;
+  font-size: 2.6rem;
+  line-height: 3.2rem;
+}
+
+.subtitle-2 {
+  font-family: "Josefin", sans-serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  line-height: 2.8rem;
+}
+
+.subtitle-3 {
+  font-family: "Josefin", sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2.4rem;
+}
+
+.subtitle-4 {
+  font-family: "Josefin", sans-serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.p-large {
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+}
+
+.p-medium {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.p-large-bold {
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.p-small {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+}
+
+label {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.label-bold {
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.label-small {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+}
+
+.card-shadow {
+  box-shadow: 8px 24px 32px -16px #10175026;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.card-shadow:hover,
+.card-shadow:focus-within {
+  box-shadow: 8px 64px 80px -16px #10175026;
+}
+
+.card-floating {
+  transition: transform 0.3s;
+}
+
+.card-floating:hover,
+.card-floating:focus-within {
+  transform: translateY(-15px);
+}
+
+.card-shadow.card-floating {
+  transition:
+    box-shadow 0.3s ease-in-out,
+    transform 0.3s;
 }

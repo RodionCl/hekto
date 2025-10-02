@@ -1,0 +1,24 @@
+import styled from "styled-components";
+import AppButton, { AppButtonProps } from "@/components/AppButton";
+import { COLORS } from "@/constants/colors";
+import { rem } from "@/utils/pxToRem";
+
+const ButtonText = styled.span`
+  font-size: ${rem(12)};
+  font-family: "Josefin", sans-serif;
+  line-height: ${rem(14)};
+`;
+
+export default function SuccessButton({ children, ...props }: AppButtonProps) {
+  return (
+    <AppButton
+      bgColor={COLORS.success}
+      bgColorHover={COLORS.successDark}
+      padding={rem(11, 16)}
+      borderRadius={rem(6)}
+      {...props}
+    >
+      <ButtonText>{children}</ButtonText>
+    </AppButton>
+  );
+}
