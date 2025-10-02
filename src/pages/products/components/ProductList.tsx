@@ -32,9 +32,6 @@ export default function ProductList({ filters, isGrid }: ProductListProps) {
     [buildQueryParams(filters)],
   );
 
-  const currentPage = filters.page;
-  const totalPage = Math.ceil(products.total / filters.perPage);
-
   const handleAddToCart = useCallback((id: string) => {
     alert(`Product with ID: ${id} added to cart!`);
   }, []);
@@ -57,6 +54,13 @@ export default function ProductList({ filters, isGrid }: ProductListProps) {
       },
       { replace: true },
     );
+  }
+
+  const currentPage = filters.page;
+  const totalPage = Math.ceil(products.total / filters.perPage);
+
+  if (currentPage > totalPage && currentPage !== 1) {
+    setPage(1);
   }
 
   return (

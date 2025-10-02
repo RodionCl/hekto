@@ -69,7 +69,7 @@ export async function fetchProducts(
 
   const data: Product[] = await res.json();
 
-  const total = parseInt(res.headers.get("x-total-count") || "0", 10);
+  const total = parseInt(res.headers.get("x-total-count") || "0");
 
   return {
     data,
