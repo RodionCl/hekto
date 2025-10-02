@@ -4,7 +4,7 @@ import { rem } from "@/utils/pxToRem";
 
 export const ImageWrapper = styled.div`
   position: relative;
-  height: 232px;
+  height: ${rem(232)};
   padding: ${rem(16, 16, 0, 16)};
 
   img {

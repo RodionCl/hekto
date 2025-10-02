@@ -14,7 +14,6 @@ import { ICON_SIZES } from "@/constants/iconSizes";
 
 interface InputProps extends OutlinedInputProps {
   width?: string;
-  border?: string;
   name: string;
   label?: string;
   hasError: boolean;
@@ -23,7 +22,6 @@ interface InputProps extends OutlinedInputProps {
 
 export default function InputComplex({
   width = "100%",
-  border = `1px solid ${COLORS.grey2}`,
   name,
   label,
   endAdornmentButton,

@@ -4,7 +4,7 @@ import { rem } from "@/utils/pxToRem";
 
 export const ImageWrapper = styled.div`
   position: relative;
-  height: 232px;
+  height: ${rem(232)};
 
   img {
     object-fit: cover;
@@ -18,8 +18,8 @@ export const IconList = styled.ul`
   display: flex;
   gap: ${rem(8)};
   position: absolute;
-  top: 8px;
-  left: 8px;
+  inset-block-start: 8px;
+  inset-inline-start: 8px;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -27,11 +27,11 @@ export const IconList = styled.ul`
 
 export const ButtonWrapper = styled.div`
   position: absolute;
-  bottom: 8px;
-  left: 50%;
+  inset-block-end: 8px;
+  inset-inline-start: 50%;
   transform: translateX(-50%);
   display: flex;
-  width: 100%;
+  inline-size: 100%;
   justify-content: center;
   opacity: 0;
   pointer-events: none;

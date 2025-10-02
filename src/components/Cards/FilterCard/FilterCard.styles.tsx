@@ -71,7 +71,7 @@ export const Wrapper = styled.div<WrapperProps>`
   display: flex;
 
   flex-direction: row;
-  height: 232px;
+  height: ${rem(232)};
   gap: 0;
 
   ${ImageWrapper} {
@@ -92,15 +92,15 @@ export const Wrapper = styled.div<WrapperProps>`
   }
 
   ${IconList} {
-    bottom: 1.8rem;
-    left: 1.8rem;
+    inset-block-end: 1.8rem;
+    inset-inline-start: 1.8rem;
   }
 
   ${({ $isGrid }) =>
     $isGrid &&
     css`
       flex-direction: column;
-      height: 448px;
+      height: ${rem(448)};
       gap: ${rem(16)};
 
       ${ImageWrapper} {
@@ -121,8 +121,8 @@ export const Wrapper = styled.div<WrapperProps>`
       }
 
       ${IconList} {
-        bottom: 1rem;
-        left: 1rem;
+        inset-block-end: 1rem;
+        inset-inline-start: 1rem;
       }
     `}
 `;

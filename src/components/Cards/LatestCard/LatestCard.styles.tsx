@@ -4,7 +4,7 @@ import { COLORS } from "@/constants/colors";
 
 export const ImageWrapper = styled.div`
   position: relative;
-  height: 232px;
+  height: ${rem(232)};
 
   img {
     object-fit: cover;
