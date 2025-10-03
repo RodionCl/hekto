@@ -53,6 +53,30 @@ const PageAction = styled(NavLink)`
 const HeaderBottom = styled.div`
   max-width: ${MAX_WIDTH};
   width: 100%;
+  padding: ${rem(16)};
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Left = styled.div`
+  display: flex;
+  gap: ${rem(48)};
+`;
+
+const Nav = styled.ul`
+  display: flex;
+  gap: ${rem(32)};
+  list-style: none;
+`;
+
+const StyledNavLink = styled(NavLink)`
+  color: ${COLORS.grey3};
+  text-decoration: none;
+  font-weight: bold;
+
+  &.active {
+    color: ${COLORS.primary};
+  }
 `;
 
 export const S = {
@@ -60,7 +84,10 @@ export const S = {
   HeaderTop,
   ContactWrapper,
   Contact,
-  HeaderBottom,
   PageActionWrapper,
   PageAction,
+  HeaderBottom,
+  Left,
+  Nav,
+  StyledNavLink,
 };
