@@ -3,6 +3,7 @@ import { S } from "./components/ProductDetails.styles";
 import ProductImageGallery from "./components/ProductImageGallery";
 import ProductInfo from "./components/ProductInfo";
 import { ProductTabs } from "@/pages/pdp/components/ProductTabs";
+import RelatedProducts from "@/pages/pdp/components/RelatedProducts";
 
 export default function ProductDetails() {
   const { id, product, isFetching } = useProductDetails();
@@ -31,6 +32,7 @@ export default function ProductDetails() {
       <S.DetailsWrapper>
         <ProductTabs />
       </S.DetailsWrapper>
+      <RelatedProducts />
     </S.Layout>
   );
 }
