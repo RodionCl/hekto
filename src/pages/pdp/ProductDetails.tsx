@@ -2,6 +2,7 @@ import { useProductDetails } from "@/hooks/useProductDetails";
 import { S } from "./components/ProductDetails.styles";
 import ProductImageGallery from "./components/ProductImageGallery";
 import ProductInfo from "./components/ProductInfo";
+import { ProductTabs } from "@/pages/pdp/components/ProductTabs";
 
 export default function ProductDetails() {
   const { id, product, isFetching } = useProductDetails();
@@ -27,6 +28,9 @@ export default function ProductDetails() {
         />
         <ProductInfo product={product} />
       </S.Main>
+      <S.DetailsWrapper>
+        <ProductTabs />
+      </S.DetailsWrapper>
     </S.Layout>
   );
 }

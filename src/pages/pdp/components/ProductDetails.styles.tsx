@@ -28,6 +28,7 @@ const ThumbnailList = styled.ul`
   height: ${rem(detalisHeight)};
   overflow: scroll;
   padding: ${rem(16)};
+  flex-shrink: 0;
 `;
 
 const ThumbnailButton = styled.button`
@@ -100,6 +101,36 @@ const ProductActions = styled.div`
   margin-top: ${rem(64)};
 `;
 
+const DetailsWrapper = styled.div`
+  background: ${COLORS.grey1};
+`;
+
+const DescriptionTab = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${rem(32)};
+`;
+
+const DescriptionBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${rem(16)};
+`;
+
+const DescriptionList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: ${rem(16)};
+  list-style: none;
+  padding-left: 0;
+  color: ${COLORS.grey3};
+
+  li::before {
+    content: "✓";
+    margin-right: 8px;
+  }
+`;
+
 export const S = {
   Layout,
   Main,
@@ -112,4 +143,8 @@ export const S = {
   InfoBlock,
   Description,
   ProductActions,
+  DetailsWrapper,
+  DescriptionTab,
+  DescriptionBlock,
+  DescriptionList,
 };
