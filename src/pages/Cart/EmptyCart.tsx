@@ -7,7 +7,7 @@ export default function EmptyCart() {
         <img src="EmptyCart.webp" alt="Empty Cart Image" />
       </S.EmptyImageWrapper>
       <S.EmptyTitle>Your cart is empty</S.EmptyTitle>
-      <S.EmptyLink to="/products">Start shopping</S.EmptyLink>
+      <S.Link to="/products">Start shopping</S.Link>
     </S.Main>
   );
 }

@@ -1,6 +1,6 @@
 import { useCart } from "@/contexts/CartContext";
-import EmptyCart from "@/pages/Cart/components/EmptyCart";
-import CartList from "@/pages/Cart/components/CartList";
+import EmptyCart from "@/pages/Cart/EmptyCart";
+import CartList from "@/pages/Cart/CartList";
 
 export function Cart() {
   const { items } = useCart();

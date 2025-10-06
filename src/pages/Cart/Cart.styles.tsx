@@ -33,7 +33,7 @@ const EmptyTitle = styled.h3`
   text-transform: capitalize;
 `;
 
-const EmptyLink = styled(NavLink)`
+const Link = styled(NavLink)`
   text-decoration: none;
   padding: ${rem(16, 40)};
   border-radius: 8px;
@@ -47,6 +47,7 @@ const List = styled.ul`
   display: flex;
   flex-direction: column;
   gap: ${rem(24)};
+  flex: 1;
 `;
 
 const Item = styled.li`
@@ -106,14 +107,28 @@ const TotalField = styled.div`
 
   &:last-child {
     border-bottom: none;
+    color: ${COLORS.grey3};
   }
+`;
+
+const ClearButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const ClearButton = styled.button`
+  margin: 32px auto;
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
+  color: ${COLORS.primary};
 `;
 
 export const S = {
   Main,
   EmptyImageWrapper,
   EmptyTitle,
-  EmptyLink,
+  Link,
   List,
   Item,
   ItemLeft,
@@ -124,4 +139,6 @@ export const S = {
   TotalPriceProduct,
   TotalPrice,
   TotalField,
+  ClearButtonWrapper,
+  ClearButton,
 };

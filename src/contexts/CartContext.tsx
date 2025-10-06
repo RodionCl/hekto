@@ -1,4 +1,10 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useEffect,
+} from "react";
 
 interface CartProduct {
   id: string;
@@ -10,6 +16,7 @@ interface ICartContext {
   addItem: (id: string) => void;
   updateItemQuantity: (id: string, amount: number) => void;
   removeItem: (id: string) => void;
+  clear: () => void;
 }
 
 export const CartContext = createContext<ICartContext>({
@@ -17,13 +24,30 @@ export const CartContext = createContext<ICartContext>({
   addItem: () => {},
   updateItemQuantity: () => {},
   removeItem: () => {},
+  clear: () => {},
 });
 
 interface CartProviderProps {
   children: ReactNode;
 }
 export function CartProvider({ children }: CartProviderProps) {
-  const [items, setItems] = useState<CartProduct[]>([]);
+  const [items, setItems] = useState<CartProduct[]>(() => {
+    try {
+      const localData = localStorage.getItem("cart-items");
+      return localData ? JSON.parse(localData) : [];
+    } catch (error) {
+      console.error("Failed to parse cart items from localStorage", error);
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("cart-items", JSON.stringify(items));
+    } catch (error) {
+      console.error("Failed to save cart items to localStorage", error);
+    }
+  }, [items]);
 
   function addItem(id: string) {
     setItems((prevItems) => {
@@ -54,9 +78,13 @@ export function CartProvider({ children }: CartProviderProps) {
     setItems((prevItems) => prevItems.filter((item) => item.id !== id));
   }
 
+  function clear() {
+    setItems([]);
+  }
+
   return (
     <CartContext.Provider
-      value={{ items, addItem, updateItemQuantity, removeItem }}
+      value={{ items, addItem, updateItemQuantity, removeItem, clear }}
     >
       {children}
     </CartContext.Provider>
