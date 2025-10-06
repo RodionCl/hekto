@@ -4,12 +4,12 @@ import {
   defaultSortBy,
   perPageOptions,
   sortByOptions,
-} from "../constants/productFilters";
+} from "@/constants/productFilters";
 import {
   PriceRange,
   ProductFilters,
   SortOption,
-} from "../interfaces/FetchProduct";
+} from "@/interfaces/FetchProduct";
 
 export function parseProductFilters(params: URLSearchParams): ProductFilters {
   const rawPerPage = params.get(PARAMS_PAGE.perPage);
