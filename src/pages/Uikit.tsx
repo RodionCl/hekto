@@ -11,14 +11,14 @@ import InputComplex from "@/components/InputComplex";
 import SearchButton from "@/components/SearchButton";
 import Form from "@/components/Form";
 import { rem } from "@/utils/pxToRem";
-import SelectList from "@/components/SelectList/SelectList";
-import InputNumberStepper from "@/components/InputNumberStepper/InputNumberStepper";
 import ColorCheckbox from "@/components/ColorCheckbox";
 import FeaturedCard from "@/components/Cards/FeaturedCard/FeaturedCard";
 import { Product } from "@/interfaces/Product";
 import LatestCard from "@/components/Cards/LatestCard/LatestCard";
 import TrendingCard from "@/components/Cards/Trending/TrendingCard";
 import FilterCard from "@/components/Cards/FilterCard/FilterCard";
+import { SelectList } from "@/components/SelectList";
+import { InputNumberStepper } from "@/components/InputNumberStepper";
 
 const Div = styled.div<{ $color: string }>`
   width: 90px;
@@ -37,7 +37,6 @@ export default function Uikit() {
       setHasError(true);
       return;
     }
-    console.log("Form ", data);
   };
 
   const handleInputChange = () => {
@@ -56,7 +55,6 @@ export default function Uikit() {
       setHasError2(true);
       return;
     }
-    console.log("Form ", data);
   };
 
   const handleInputChange2 = () => {

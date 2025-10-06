@@ -6,6 +6,7 @@ export const ImageWrapper = styled.div`
   position: relative;
   flex-shrink: 0;
   width: 100%;
+  height: ${rem(200)};
 
   img {
     object-fit: cover;
@@ -73,10 +74,6 @@ export const Wrapper = styled.div<WrapperProps>`
   flex-direction: row;
   height: ${rem(232)};
   gap: 0;
-
-  ${ImageWrapper} {
-    padding: ${rem(16)};
-  }
 
   ${Info} > a {
     padding: ${rem(36, 20)};

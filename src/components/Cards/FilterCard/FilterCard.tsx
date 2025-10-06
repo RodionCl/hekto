@@ -4,6 +4,7 @@ import { Product } from "@/interfaces/Product";
 import * as S from "@/components/Cards/FilterCard/FilterCard.styles";
 import IconActions from "@/components/Cards/IconActions";
 import { formatCurrency } from "@/utils/formatCurrency";
+import { rem } from "@/utils/pxToRem";
 
 interface FilterCardProps {
   product: Product;
@@ -27,6 +28,7 @@ export default function FilterCard({
   isGrid = false,
 }: FilterCardProps) {
   const { thumbnail, name, price, wasPrice, rating, description } = product;
+  const imagePadding = isGrid ? 8 : 16;
 
   return (
     <S.Wrapper
@@ -38,7 +40,7 @@ export default function FilterCard({
       <Link
         to={productUrl}
         tabIndex={-1}
-        style={{ display: "flex", flexShrink: "0" }}
+        style={{ display: "flex", flexShrink: "0", padding: rem(imagePadding) }}
       >
         <S.ImageWrapper>
           <img src={thumbnail} alt={`${name} Image`} />
