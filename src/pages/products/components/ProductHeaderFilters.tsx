@@ -1,9 +1,9 @@
 import { SelectChangeEvent } from "@mui/material";
-import SelectList from "@/components/SelectList/SelectList";
-import * as S from "@/pages/products/components/Layout.styles";
+import * as S from "./Layout.styles";
 import { perPageOptions, sortByOptions } from "@/constants/productFilters";
-import ViewToggle from "@/pages/products/components/ViewToggle";
+import ViewToggle from "./ViewToggle";
 import { ViewMode } from "@/utils/parseViewFilters";
+import { SelectList } from "@/components/SelectList/SelectList";
 
 interface ProductFiltersProps {
   perPage: string;

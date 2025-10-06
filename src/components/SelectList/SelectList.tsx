@@ -22,7 +22,7 @@ interface SelectListProps<T extends string> {
   width?: string;
 }
 
-export default function SelectList<T extends string>({
+export function SelectList<T extends string>({
   value,
   onChange,
   options,

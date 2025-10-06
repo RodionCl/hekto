@@ -1,7 +1,7 @@
 import { PARAMS_QUERY } from "@/constants/queryParams";
-import { environment } from "../../environment";
-import { PaginatedResult, ProductFilters } from "../../interfaces/FetchProduct";
-import { Product } from "../../interfaces/Product";
+import { Product } from "@/interfaces/Product";
+import { PaginatedResult, ProductFilters } from "@/interfaces/FetchProduct";
+import { environment } from "@/environment";
 
 export function buildQueryParams(filters?: ProductFilters): string {
   const params = new URLSearchParams();

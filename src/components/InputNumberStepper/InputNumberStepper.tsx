@@ -27,7 +27,7 @@ interface InputNumberStepperProps {
   max?: number;
 }
 
-export default function InputNumberStepper({
+export function InputNumberStepper({
   value,
   onIncrement,
   onDecrement,

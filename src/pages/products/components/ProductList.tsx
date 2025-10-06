@@ -5,15 +5,12 @@ import { Product } from "@/interfaces/Product";
 import { buildQueryParams, fetchProducts } from "@/utils/fetch/fetchProducts";
 import FilterCard from "@/components/Cards/FilterCard/FilterCard";
 import FilterCardSkeleton from "@/components/Cards/FilterCard/FilterCardSkeleton";
-import {
-  StyledMain,
-  GridWrapper,
-} from "@/pages/products/components/Layout.styles";
+import { StyledMain, GridWrapper } from "./Layout.styles";
 import {
   PaginatedResult,
   ProductFilters as ProductFiltersType,
 } from "@/interfaces/FetchProduct";
-import ProductPagination from "@/pages/products/components/ProductPagination";
+import ProductPagination from "./ProductPagination";
 import { PARAMS_PAGE } from "@/constants/queryParams";
 
 interface ProductListProps {

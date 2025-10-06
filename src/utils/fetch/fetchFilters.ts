@@ -1,5 +1,5 @@
-import { environment } from "../../environment";
-import { SideFilters } from "../../interfaces/SideFilters";
+import { environment } from "@/environment";
+import { SideFilters } from "@/interfaces/SideFilters";
 
 function uniqueArray<T>(arr: T[]): T[] {
   return [...new Set(arr)];
