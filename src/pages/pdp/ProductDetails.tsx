@@ -2,8 +2,8 @@ import { useProductDetails } from "@/hooks/useProductDetails";
 import { S } from "./components/ProductDetails.styles";
 import ProductImageGallery from "./components/ProductImageGallery";
 import ProductInfo from "./components/ProductInfo";
-import { ProductTabs } from "@/pages/pdp/components/ProductTabs";
-import RelatedProducts from "@/pages/pdp/components/RelatedProducts";
+import { ProductTabs } from "./components/ProductTabs";
+import RelatedProducts from "./components/RelatedProducts";
 
 export default function ProductDetails() {
   const { id, product, isFetching } = useProductDetails();
