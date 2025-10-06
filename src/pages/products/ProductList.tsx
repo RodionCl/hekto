@@ -12,6 +12,7 @@ import {
 } from "@/interfaces/FetchProduct";
 import ProductPagination from "./ProductPagination";
 import { PARAMS_PAGE } from "@/constants/queryParams";
+import { ROUTE_TOKENS } from "@/constants/routes";
 
 interface ProductListProps {
   filters: ProductFiltersType;
@@ -78,7 +79,7 @@ export default function ProductList({ filters, isGrid }: ProductListProps) {
               <FilterCard
                 key={product.id}
                 product={product}
-                productUrl={`/products/${product.id}`}
+                productUrl={`${ROUTE_TOKENS.products}/${product.id}`}
                 maxWidth="100%"
                 onAddToCart={() => handleAddToCart(product.id)}
                 onAddToWishlist={() => handleAddToWishlist(product.id)}
