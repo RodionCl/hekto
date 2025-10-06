@@ -1,4 +1,4 @@
-import PriceRangeSlider from "@/pages/Products/components/PriceRangeSlider";
+import PriceRangeSlider from "@/components/PriceRangeSlider";
 
 interface RangeFilterProps {
   min: number;
