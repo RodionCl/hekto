@@ -5,6 +5,7 @@ import { Products } from "@/pages/products";
 import { Header } from "@/layout/Header";
 import { Footer } from "@/layout/Footer";
 import ProductDetails from "@/pages/pdp/ProductDetails";
+import { CartProvider } from "@/contexts/CartContext";
 
 function Layout() {
   return (
@@ -38,9 +39,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <>
-      <RouterProvider router={router}></RouterProvider>
-    </>
+    <CartProvider>
+      <RouterProvider router={router}></RouterProvider>;
+    </CartProvider>
   );
 }
 

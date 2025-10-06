@@ -14,6 +14,7 @@ import ProductPagination from "./ProductPagination";
 import { PARAMS_PAGE } from "@/constants/queryParams";
 import { ROUTE_TOKENS } from "@/constants/routes";
 import NoResults from "@/components/NoResults";
+import { useCart } from "@/contexts/CartContext";
 
 interface ProductListProps {
   filters: ProductFiltersType;
@@ -32,8 +33,10 @@ export default function ProductList({ filters, isGrid }: ProductListProps) {
     [buildQueryParams(filters)],
   );
 
+  const { addItem, items } = useCart();
+
   const handleAddToCart = useCallback((id: string) => {
-    alert(`Product with ID: ${id} added to cart!`);
+    addItem(id);
   }, []);
 
   const handleAddToWishlist = useCallback((id: string) => {
