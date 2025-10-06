@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router-dom";
-import { OptionItem } from "./SideFilter.styles";
+import { S } from "./SideFilter.styles";
 import ColorCheckbox from "@/components/ColorCheckbox";
 import { colorFilterCategory } from "@/utils/filterCategoryHelpers";
 
@@ -18,7 +18,7 @@ export default function MultiSelectFilter({
   const checkedValues = searchParams.getAll(filterKey);
 
   return values.map((value) => (
-    <OptionItem key={`${filterKey}-${value}`}>
+    <S.OptionItem key={`${filterKey}-${value}`}>
       <ColorCheckbox
         id={`${filterKey}-${value}`}
         name={`${filterKey}-${value}`}
@@ -26,7 +26,7 @@ export default function MultiSelectFilter({
         checked={checkedValues.includes(value)}
         onChange={() => onChange(value)}
       />
-      <label htmlFor={`${filterKey}-${value}`}>{value}</label>
-    </OptionItem>
+      <S.Label htmlFor={`${filterKey}-${value}`}>{value}</S.Label>
+    </S.OptionItem>
   ));
 }

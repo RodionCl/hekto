@@ -6,12 +6,14 @@ interface PaginationProps {
   currentPage: number;
   totalPage: number;
   onPageChange: (page: number) => void;
+  ariaLabel: string;
 }
 
 export default function ProductPagination({
   currentPage,
   totalPage,
   onPageChange,
+  ariaLabel,
 }: PaginationProps) {
   const handleChange = (_event: React.ChangeEvent<unknown>, page: number) => {
     onPageChange(page);
@@ -24,6 +26,7 @@ export default function ProductPagination({
         page={currentPage}
         onChange={handleChange}
         shape="rounded"
+        aria-label={ariaLabel}
         sx={{
           fontSize: rem(16),
           "& .MuiPaginationItem-root.Mui-selected": {

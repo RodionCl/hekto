@@ -40,6 +40,7 @@ export const PageFilter = styled.div`
   justify-content: flex-end;
   gap: ${rem(64)};
   width: 100%;
+  margin-top: ${rem(80)};
 `;
 
 export const SelectListWrapper = styled.div`
@@ -54,14 +55,14 @@ export const SelectListLabel = styled.div`
 
 export const FilterListWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
   width: 100%;
-  gap: ${rem(16)};
+  gap: ${rem(172)};
 `;
 
 export const GridWrapper = styled.div`
   width: 100%;
   max-width: 1000px;
+  margin-top: ${rem(32)};
 `;
 
 export const StyledMain = styled.main<{ $isGrid: boolean }>`
@@ -74,6 +75,7 @@ export const StyledMain = styled.main<{ $isGrid: boolean }>`
   ${({ $isGrid }) =>
     $isGrid &&
     `
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, 300px);
+    justify-content: center;
   `}
 `;

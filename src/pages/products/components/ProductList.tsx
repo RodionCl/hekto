@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useFetch } from "@/hooks/useFetch";
 import { Product } from "@/interfaces/Product";
@@ -57,15 +57,21 @@ export default function ProductList({ filters, isGrid }: ProductListProps) {
   const currentPage = filters.page;
   const totalPage = Math.ceil(products.total / filters.perPage);
 
-  if (currentPage > totalPage && currentPage !== 1) {
-    setPage(1);
+  useEffect(() => {
+    if (currentPage > totalPage && currentPage !== 1) {
+      setPage(1);
+    }
+  }, [currentPage, totalPage]);
+
+  if (products.total === 0 && !isFetching) {
+    return <h1>No products found</h1>;
   }
 
   return (
     <GridWrapper>
       <StyledMain $isGrid={isGrid}>
         {isFetching
-          ? Array.from({ length: 12 }).map((_, index) => (
+          ? Array.from({ length: filters.perPage }).map((_, index) => (
               <FilterCardSkeleton key={index} maxWidth="100%" isGrid={isGrid} />
             ))
           : products.data.map((product) => (
@@ -81,11 +87,14 @@ export default function ProductList({ filters, isGrid }: ProductListProps) {
               />
             ))}
       </StyledMain>
-      <ProductPagination
-        currentPage={currentPage}
-        totalPage={totalPage}
-        onPageChange={setPage}
-      ></ProductPagination>
+      {totalPage !== 0 && (
+        <ProductPagination
+          currentPage={currentPage}
+          totalPage={totalPage}
+          onPageChange={setPage}
+          ariaLabel="product pagination"
+        ></ProductPagination>
+      )}
     </GridWrapper>
   );
 }

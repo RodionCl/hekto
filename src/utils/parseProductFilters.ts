@@ -44,8 +44,14 @@ export function parseProductFilters(params: URLSearchParams): ProductFilters {
   const max = priceMax ? parseFloat(priceMax) : undefined;
   const priceRanges: PriceRange[] = [];
 
-  if (!isNaN(min!) || !isNaN(max!)) {
-    priceRanges.push({ min: min || 0, max });
+  const isMinValid = typeof min === "number" && !isNaN(min);
+  const isMaxValid = typeof max === "number" && !isNaN(max);
+
+  if (isMinValid || isMaxValid) {
+    priceRanges.push({
+      min: isMinValid ? min! : 0,
+      max: isMaxValid ? max : undefined,
+    });
   }
 
   const rawDiscount = params.get(PARAMS_PAGE.discountPercentage);

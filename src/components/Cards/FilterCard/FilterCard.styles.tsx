@@ -75,10 +75,6 @@ export const Wrapper = styled.div<WrapperProps>`
   height: ${rem(232)};
   gap: 0;
 
-  ${ImageWrapper} {
-    padding: ${rem(16)};
-  }
-
   ${Info} > a {
     padding: ${rem(36, 20)};
   }

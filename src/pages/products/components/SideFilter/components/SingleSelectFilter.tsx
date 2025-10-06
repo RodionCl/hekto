@@ -4,7 +4,7 @@ import {
   colorFilterCategory,
   labelCategory,
 } from "@/utils/filterCategoryHelpers";
-import { OptionItem } from "./SideFilter.styles";
+import { S } from "./SideFilter.styles";
 
 interface SingleSelectFilterProps {
   filterKey: string;
@@ -25,7 +25,7 @@ export default function SingleSelectFilter({
     const isChecked = checkedValue === stringValue;
 
     return (
-      <OptionItem key={`${filterKey}-${value}`}>
+      <S.OptionItem key={`${filterKey}-${value}`}>
         <Radio
           id={`${filterKey}-${value}`}
           checked={isChecked}
@@ -43,7 +43,7 @@ export default function SingleSelectFilter({
           }}
         />
         {labelCategory(filterKey, value)}
-      </OptionItem>
+      </S.OptionItem>
     );
   });
 }

@@ -1,10 +1,6 @@
 import { useSideFilter } from "@/hooks/useSideFilter";
 import { SideFilters } from "@/interfaces/SideFilters";
-import {
-  AsideFilter,
-  FilterCategory,
-  OptionsList,
-} from "./components/SideFilter.styles";
+import { S } from "./components/SideFilter.styles";
 import FilterControl from "./components/FilterControl";
 
 export function SideFilter() {
@@ -15,21 +11,19 @@ export function SideFilter() {
   }
 
   return (
-    <AsideFilter>
+    <S.AsideFilter>
       {Object.entries(sideFilters).map(([key, filter]) => (
-        <FilterCategory key={key}>
-          <p className="subtitle-3" style={{ borderBottom: "1px solid black" }}>
-            {filter.label}
-          </p>
-          <OptionsList>
+        <S.FilterCategory key={key}>
+          <S.LabelFilter className="subtitle-3">{filter.label}</S.LabelFilter>
+          <S.OptionsList>
             <FilterControl
               filterKey={key as keyof SideFilters}
               filter={filter}
               handleFilterChange={handleFilterChange}
             />
-          </OptionsList>
-        </FilterCategory>
+          </S.OptionsList>
+        </S.FilterCategory>
       ))}
-    </AsideFilter>
+    </S.AsideFilter>
   );
 }
