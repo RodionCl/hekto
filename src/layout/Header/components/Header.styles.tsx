@@ -65,6 +65,7 @@ const Left = styled.div`
 
 const Nav = styled.ul`
   display: flex;
+  align-items: center;
   gap: ${rem(32)};
   list-style: none;
 `;
