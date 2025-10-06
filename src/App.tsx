@@ -1,7 +1,7 @@
 import "./App.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Uikit from "./pages/Uikit";
-import { Products } from "@/pages/Products";
+import { Products } from "@/pages/products";
 import { Header } from "@/layout/Header";
 
 function Layout() {
