@@ -6,6 +6,7 @@ import { Header } from "@/layout/Header";
 import { Footer } from "@/layout/Footer";
 import ProductDetails from "@/pages/pdp/ProductDetails";
 import { CartProvider } from "@/contexts/CartContext";
+import { Cart } from "@/pages/Cart";
 
 function Layout() {
   return (
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
         path: "/products/:id",
         element: <ProductDetails />,
       },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
     ],
   },
 ]);
@@ -40,7 +45,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <CartProvider>
-      <RouterProvider router={router}></RouterProvider>;
+      <RouterProvider router={router}></RouterProvider>
     </CartProvider>
   );
 }

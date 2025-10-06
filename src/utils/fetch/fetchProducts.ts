@@ -96,3 +96,22 @@ export async function fetchSingleProduct(id: string): Promise<Product | null> {
 
   return data as Product;
 }
+
+export async function fetchMultipleProducts(ids: string[]): Promise<Product[]> {
+  const query = ids.map((id) => `id=${encodeURIComponent(id)}`).join("&");
+  const url = `${environment.BACK_API}/products?${query}`;
+
+  const res = await fetch(url);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch products");
+  }
+
+  const data = await res.json();
+
+  if (!Array.isArray(data)) {
+    throw new Error("Invalid response format");
+  }
+
+  return data as Product[];
+}
