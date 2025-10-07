@@ -33,7 +33,7 @@ export default function ProductList({ filters, isGrid }: ProductListProps) {
     [buildQueryParams(filters)],
   );
 
-  const { addItem, items } = useCart();
+  const { addItem } = useCart();
 
   const handleAddToCart = useCallback((id: string) => {
     addItem(id);
