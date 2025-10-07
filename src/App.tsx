@@ -3,7 +3,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Uikit from "./pages/Uikit";
 import { Products } from "@/pages/products";
 import { Header } from "@/layout/Header";
-import { Footer } from "@/layout/Footer/Footer";
+import { Footer } from "@/layout/Footer";
 
 function Layout() {
   return (

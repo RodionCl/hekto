@@ -19,9 +19,9 @@ export default function FooterLinkColumn({
       <p className="subtitle">{category}</p>
       <S.ListPages>
         {pages.map((page) => (
-          <S.PageLink key={page.label} to={page.url}>
-            {page.label}
-          </S.PageLink>
+          <li key={page.label}>
+            <S.PageLink to={page.url}>{page.label}</S.PageLink>
+          </li>
         ))}
       </S.ListPages>
     </S.Column>
