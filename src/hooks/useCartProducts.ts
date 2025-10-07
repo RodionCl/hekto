@@ -14,7 +14,7 @@ export const useCartProducts = () => {
   const { fetchedData: products, isFetching } = useFetch<Product[]>(
     () => fetchMultipleProducts(productIds),
     [],
-    [productIds.join(" ")],
+    [],
   );
 
   const combinedItems = (products || [])

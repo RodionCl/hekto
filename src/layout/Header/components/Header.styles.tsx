@@ -58,6 +58,7 @@ const PageAction = styled(NavLink)`
   font-size: inherit;
   color: inherit;
   cursor: pointer;
+  position: relative;
 `;
 
 const HeaderBottom = styled.div`
@@ -90,6 +91,21 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
+const CartCounter = styled.span`
+  position: absolute;
+  background: ${COLORS.grey1};
+  border-radius: 50%;
+  color: ${COLORS.black};
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  right: -8px;
+  top: -4px;
+`;
+
 export const S = {
   Header,
   HeaderWrapper,
@@ -102,4 +118,5 @@ export const S = {
   Left,
   Nav,
   StyledNavLink,
+  CartCounter,
 };

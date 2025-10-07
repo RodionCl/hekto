@@ -8,13 +8,20 @@ import { ICON_SIZES } from "@/constants/iconSizes";
 import { rem } from "@/utils/pxToRem";
 import AppButton from "@/components/AppButton";
 import AppIconButton from "@/components/AppIconButton";
+import { useCart } from "@/contexts/CartContext";
 
 interface ProductInfoProps {
   product: Product;
 }
 
 export default function ProductInfo({ product }: ProductInfoProps) {
-  const { name, rating, price, wasPrice, description } = product;
+  const { id, name, rating, price, wasPrice, description } = product;
+
+  const { addItem } = useCart();
+
+  const handleAddToCart = () => {
+    addItem(id);
+  };
 
   return (
     <S.InfoBlock>
@@ -30,7 +37,11 @@ export default function ProductInfo({ product }: ProductInfoProps) {
       </S.Description>
 
       <S.ProductActions>
-        <AppButton bgColor={COLORS.primary} bgColorHover={COLORS.primaryDark}>
+        <AppButton
+          bgColor={COLORS.primary}
+          bgColorHover={COLORS.primaryDark}
+          onClick={handleAddToCart}
+        >
           <span className="subtitle-4">Add To Cart</span>
         </AppButton>
         <AppIconButton
