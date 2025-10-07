@@ -85,6 +85,7 @@ const WasPrice = styled.p`
 
 const InfoBlock = styled.div`
   padding: ${rem(24)};
+  max-width: ${rem(400)};
 `;
 
 const Description = styled.p`
