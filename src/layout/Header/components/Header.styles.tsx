@@ -12,13 +12,23 @@ const Header = styled.header`
 `;
 
 const HeaderTop = styled.div`
-  background-color: ${COLORS.tertiary};
   max-width: ${MAX_WIDTH};
   width: 100%;
   color: ${COLORS.white};
   display: flex;
   justify-content: space-between;
   padding: ${rem(14)};
+`;
+
+interface HeaderWrapperProps {
+  $color: string;
+}
+
+const HeaderWrapper = styled.div<HeaderWrapperProps>`
+  width: 100%;
+  background-color: ${({ $color }) => $color};
+  display: flex;
+  justify-content: center;
 `;
 
 const ContactWrapper = styled.div`
@@ -82,6 +92,7 @@ const StyledNavLink = styled(NavLink)`
 
 export const S = {
   Header,
+  HeaderWrapper,
   HeaderTop,
   ContactWrapper,
   Contact,
