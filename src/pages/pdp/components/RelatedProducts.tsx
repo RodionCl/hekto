@@ -2,6 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import FeaturedCard from "@/components/Cards/FeaturedCard/FeaturedCard";
 import { Product } from "@/interfaces/Product";
+import { S } from "./ProductDetails.styles";
 
 const sampleProduct: Product = {
   id: "339336d2-0b5c-490b-9014-c9f3c52e6d6f",
@@ -56,8 +57,8 @@ export default function RelatedProducts() {
   };
 
   return (
-    <div>
-      <h3>Related Products</h3>
+    <S.RelatedProducts>
+      <S.RelatedTitle>Related Products</S.RelatedTitle>
       <Swiper
         slidesPerView={"auto"}
         style={{ overflow: "visible" }}
@@ -90,6 +91,6 @@ export default function RelatedProducts() {
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </S.RelatedProducts>
   );
 }

@@ -29,9 +29,11 @@ export default function ProductDetails() {
         />
         <ProductInfo product={product} />
       </S.Main>
-      <S.DetailsWrapper>
-        <ProductTabs />
-      </S.DetailsWrapper>
+      <S.DetailsBackground>
+        <S.DetailsWrapper>
+          <ProductTabs />
+        </S.DetailsWrapper>
+      </S.DetailsBackground>
       <RelatedProducts />
     </S.Layout>
   );

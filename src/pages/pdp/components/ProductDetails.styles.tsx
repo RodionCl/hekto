@@ -6,14 +6,15 @@ import styled from "styled-components";
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: ${MAX_WIDTH};
-  margin: 0 auto;
+  gap: ${rem(48)};
 `;
 
 const Main = styled.main`
   display: flex;
   gap: ${rem(32)};
   padding: ${rem(48, 0)};
+  max-width: ${MAX_WIDTH};
+  margin: 0 auto;
 `;
 
 const thumbnailHeight = 136;
@@ -101,8 +102,13 @@ const ProductActions = styled.div`
   margin-top: ${rem(64)};
 `;
 
-const DetailsWrapper = styled.div`
+const DetailsBackground = styled.div`
   background: ${COLORS.grey1};
+`;
+
+const DetailsWrapper = styled.div`
+  max-width: ${MAX_WIDTH};
+  margin: 0 auto;
 `;
 
 const DescriptionTab = styled.div`
@@ -131,6 +137,15 @@ const DescriptionList = styled.ul`
   }
 `;
 
+const RelatedProducts = styled.div`
+  max-width: ${MAX_WIDTH};
+  margin: 0 auto;
+`;
+
+const RelatedTitle = styled.h3`
+  margin-bottom: ${rem(32)};
+`;
+
 export const S = {
   Layout,
   Main,
@@ -143,8 +158,11 @@ export const S = {
   InfoBlock,
   Description,
   ProductActions,
+  DetailsBackground,
   DetailsWrapper,
   DescriptionTab,
   DescriptionBlock,
   DescriptionList,
+  RelatedProducts,
+  RelatedTitle,
 };
