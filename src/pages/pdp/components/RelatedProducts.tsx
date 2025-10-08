@@ -3,6 +3,9 @@ import "swiper/css";
 import FeaturedCard from "@/components/Cards/FeaturedCard/FeaturedCard";
 import { Product } from "@/interfaces/Product";
 import { S } from "./ProductDetails.styles";
+import { PaginatedResult } from "@/interfaces/FetchProduct";
+import { fetchProducts } from "@/utils/fetch/fetchProducts";
+import { useFetch } from "@/hooks/useFetch";
 
 const sampleProduct: Product = {
   id: "339336d2-0b5c-490b-9014-c9f3c52e6d6f",
@@ -39,7 +42,27 @@ const featuredProducts = [
   sampleProduct,
   sampleProduct,
 ];
-export default function RelatedProducts() {
+
+interface RelatedProductsProps {
+  category: string;
+}
+export default function RelatedProducts({ category }: RelatedProductsProps) {
+  const { fetchedData: products, isFetching } = useFetch<
+    PaginatedResult<Product>
+  >(
+    () =>
+      fetchProducts({
+        categories: [category],
+        page: 1,
+        perPage: 4,
+      }),
+    {
+      data: [],
+      total: 0,
+    },
+    [],
+  );
+
   const handleAddToCart = (id: string) => {
     alert(`Product with ID: ${id} added to cart!`);
   };
@@ -77,7 +100,7 @@ export default function RelatedProducts() {
           },
         }}
       >
-        {featuredProducts.map((product, index) => (
+        {products.data.map((product, index) => (
           <SwiperSlide key={index} style={{ width: "auto", flexShrink: 0 }}>
             <FeaturedCard
               product={product}

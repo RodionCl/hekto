@@ -34,7 +34,7 @@ export default function ProductDetails() {
           <ProductTabs />
         </S.DetailsWrapper>
       </S.DetailsBackground>
-      <RelatedProducts />
+      <RelatedProducts category={product.category} />
     </S.Layout>
   );
 }

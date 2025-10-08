@@ -19,14 +19,14 @@ const Main = styled.main`
 
 const thumbnailHeight = 136;
 const gapBetweenThumbnails = 16;
-const detalisHeight = 3 * thumbnailHeight + 2 * gapBetweenThumbnails;
+const detailsHeight = 3 * thumbnailHeight + 2 * gapBetweenThumbnails;
 
 const ThumbnailList = styled.ul`
   display: flex;
   flex-direction: column;
   list-style: none;
   gap: ${rem(gapBetweenThumbnails)};
-  height: ${rem(detalisHeight)};
+  height: ${rem(detailsHeight)};
   overflow: scroll;
   padding: ${rem(16)};
   flex-shrink: 0;
@@ -60,7 +60,7 @@ const SelectedImageWrapper = styled.div`
   flex: 1;
   border-radius: 8px;
   overflow: hidden;
-  height: ${rem(detalisHeight)};
+  height: ${rem(detailsHeight)};
   max-width: ${rem(528)};
   min-width: ${rem(320)};
 

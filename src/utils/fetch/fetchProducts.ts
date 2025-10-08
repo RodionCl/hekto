@@ -85,7 +85,7 @@ export async function fetchSingleProduct(id: string): Promise<Product | null> {
   const res = await fetch(url);
 
   if (!res.ok) {
-    throw new Error("Failed to fetch products");
+    throw new Error("Failed to fetch product");
   }
 
   const data = await res.json();
