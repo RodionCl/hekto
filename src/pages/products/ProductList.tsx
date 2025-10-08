@@ -13,6 +13,7 @@ import {
 import ProductPagination from "./ProductPagination";
 import { PARAMS_PAGE } from "@/constants/queryParams";
 import { ROUTE_TOKENS } from "@/constants/routes";
+import NoResults from "@/components/NoResults";
 
 interface ProductListProps {
   filters: ProductFiltersType;
@@ -65,7 +66,12 @@ export default function ProductList({ filters, isGrid }: ProductListProps) {
   }, [currentPage, totalPage]);
 
   if (products.total === 0 && !isFetching) {
-    return <h1>No products found</h1>;
+    return (
+      <NoResults
+        message="No Products Found"
+        suggestion="Try adjusting your filters or search terms."
+      />
+    );
   }
 
   return (

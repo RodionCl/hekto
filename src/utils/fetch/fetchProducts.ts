@@ -78,3 +78,21 @@ export async function fetchProducts(
     total,
   };
 }
+
+export async function fetchSingleProduct(id: string): Promise<Product | null> {
+  const url = `${environment.BACK_API}/products/${id}`;
+
+  const res = await fetch(url);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch product");
+  }
+
+  const data = await res.json();
+
+  if (data && typeof data === "object" && Object.keys(data).length === 0) {
+    return null;
+  }
+
+  return data as Product;
+}

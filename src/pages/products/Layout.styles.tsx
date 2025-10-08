@@ -76,6 +76,5 @@ export const StyledMain = styled.main<{ $isGrid: boolean }>`
     $isGrid &&
     `
     grid-template-columns: repeat(auto-fit, 300px);
-    justify-content: center;
   `}
 `;

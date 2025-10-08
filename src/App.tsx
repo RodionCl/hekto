@@ -4,6 +4,7 @@ import Uikit from "./pages/Uikit";
 import { Products } from "@/pages/products";
 import { Header } from "@/layout/Header";
 import { Footer } from "@/layout/Footer";
+import ProductDetails from "@/pages/pdp/ProductDetails";
 
 function Layout() {
   return (
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/products",
         element: <Products />,
+      },
+      {
+        path: "/products/:id",
+        element: <ProductDetails />,
       },
     ],
   },
