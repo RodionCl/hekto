@@ -2,6 +2,7 @@ import Box from "@mui/material/Box";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import FormControl from "@mui/material/FormControl";
 import ActionButton from "@/components/InputNumberStepper/ActionButton";
+import React, { useState, useEffect } from "react";
 
 const inputStyles = {
   "& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button": {
@@ -22,7 +23,9 @@ interface InputNumberStepperProps {
   value: number;
   onIncrement: () => void;
   onDecrement: () => void;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  id?: string;
   min?: number;
   max?: number;
 }
@@ -32,14 +35,37 @@ export function InputNumberStepper({
   onIncrement,
   onDecrement,
   onChange,
+  onBlur,
+  id = "stepper-input",
   min = -Infinity,
   max = Infinity,
 }: InputNumberStepperProps) {
+  const [inputValue, setInputValue] = useState<number | string>(value);
+
+  useEffect(() => {
+    setInputValue(value);
+  }, [value]);
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+    if (onChange) {
+      onChange(event);
+    }
+  };
+
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+    if (onBlur) {
+      onBlur(event);
+    } else {
+      setInputValue(value);
+    }
+  };
+
   const decrementButton = (
     <ActionButton
       type="decrement"
       onClick={onDecrement}
-      disabled={value <= min}
+      disabled={Number(value) <= min}
     />
   );
 
@@ -47,7 +73,7 @@ export function InputNumberStepper({
     <ActionButton
       type="increment"
       onClick={onIncrement}
-      disabled={value >= max}
+      disabled={Number(value) >= max}
     />
   );
 
@@ -55,10 +81,11 @@ export function InputNumberStepper({
     <Box sx={{ width: 150 }}>
       <FormControl variant="outlined" size="small" fullWidth>
         <OutlinedInput
-          id="stepper-input"
+          id={id}
           type="number"
-          value={value}
-          onChange={onChange}
+          value={inputValue}
+          onChange={handleInputChange}
+          onBlur={handleBlur}
           startAdornment={decrementButton}
           endAdornment={incrementButton}
           inputProps={{
