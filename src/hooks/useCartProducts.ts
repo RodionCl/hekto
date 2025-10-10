@@ -11,11 +11,11 @@ export const useCartProducts = () => {
   const { items } = useCart();
   const productIds = items.map((item) => item.id);
 
-  const { fetchedData: products, isFetching } = useFetch<Product[]>(
-    () => fetchMultipleProducts(productIds),
-    [],
-    [],
-  );
+  const {
+    fetchedData: products,
+    isFetching,
+    error,
+  } = useFetch<Product[]>(() => fetchMultipleProducts(productIds), [], []);
 
   const combinedItems = (products || [])
     .map((product) => {
@@ -29,5 +29,5 @@ export const useCartProducts = () => {
     0,
   );
 
-  return { combinedItems, totalPrice, isFetching };
+  return { combinedItems, totalPrice, isFetching, error };
 };

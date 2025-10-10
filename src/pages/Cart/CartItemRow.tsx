@@ -36,7 +36,7 @@ export default function CartItemRow({
           value={item.quantity}
           min={0}
           max={10}
-          id={`quantity-${item.name}`}
+          id={`quantity-${item.id}`}
           onIncrement={() => onQuantityChange(item.id, item.quantity + 1)}
           onDecrement={() => onQuantityChange(item.id, item.quantity - 1)}
           onBlur={handleBlur}

@@ -98,6 +98,7 @@ export async function fetchSingleProduct(id: string): Promise<Product | null> {
 }
 
 export async function fetchMultipleProducts(ids: string[]): Promise<Product[]> {
+  if (ids.length === 0) return [];
   const query = ids.map((id) => `id=${encodeURIComponent(id)}`).join("&");
   const url = `${environment.BACK_API}/products?${query}`;
 

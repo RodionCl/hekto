@@ -8,7 +8,8 @@ const shippingPrice = 100;
 
 export default function CartList() {
   const { updateItemQuantity, clear } = useCart();
-  const { combinedItems, totalPrice, isFetching } = useCartProducts();
+  const { combinedItems, totalPrice, isFetching, error } = useCartProducts();
+  if (error) return <p>Failed to load cart. Please try again.</p>;
 
   const handleQuantityChange = (id: string, newQuantity: number) => {
     const clampedQuantity = Math.min(Math.max(newQuantity, 0), 10);
@@ -17,10 +18,6 @@ export default function CartList() {
 
   if (isFetching) {
     return <p>Loading cart...</p>;
-  }
-
-  if (combinedItems.length === 0) {
-    return <p>Your cart is empty.</p>;
   }
 
   return (
